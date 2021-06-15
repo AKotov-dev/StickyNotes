@@ -1,6 +1,6 @@
 Sticky Notes
 --
-Simple, colorful notes for everyday work. The size of the note changes beyond the lower-right corner. Individual note colors, and font can be customized. It is possible to import and export all notes to a file. After startup, it shows a yellow icon in the system tray and is controlled from there. Double-click on the icon to show/hide all notes. You can change the font size by pressing Ctrl +/-
+Simple, colorful notes for everyday work. The size of the note changes the lower-right corner. Individual note colors, and font can be customized. It is possible to import and export all notes to a file. After startup, it shows a yellow icon in the system tray and is controlled from there. Double-click on the icon to show/hide all notes. You can change the font size by pressing Ctrl +/-
 
 Made in Mageia-8, additionally tested in Linux Mint-20.
 
