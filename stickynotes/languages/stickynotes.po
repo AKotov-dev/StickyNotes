@@ -75,30 +75,6 @@ msgstr ""
 msgid "NoteForm"
 msgstr ""
 
-#: tnoteform.speedbutton4.caption
-msgid "C"
-msgstr ""
-
-#: tnoteform.speedbutton4.hint
-msgid "Note color"
-msgstr ""
-
-#: tnoteform.speedbutton6.caption
-msgid "F"
-msgstr ""
-
-#: tnoteform.speedbutton6.hint
-msgid "Note font"
-msgstr ""
-
-#: tnoteform.speedbutton7.caption
-msgid "FC"
-msgstr ""
-
-#: tnoteform.speedbutton7.hint
-msgid "Note font color"
-msgstr ""
-
 #: unit1.sexportmessage
 msgid "Exporting notes completed..."
 msgstr ""

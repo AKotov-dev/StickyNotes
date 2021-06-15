@@ -13,7 +13,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='StickyNotes v0.2';
+  Application.Title:='StickyNotes v0.3';
   Application.Scaled := True;
   Application.Initialize;
   Application.ShowMainForm := False;

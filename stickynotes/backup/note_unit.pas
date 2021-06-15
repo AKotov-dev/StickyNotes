@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, StdCtrls,
-  ExtCtrls, IniPropStorage, DefaultTranslator;
+  ExtCtrls, IniPropStorage, DefaultTranslator, LCLType;
 
 type
 
@@ -19,12 +19,16 @@ type
     IniPropStorage1: TIniPropStorage;
     Memo1: TMemo;
     Shape1: TShape;
+    Shape2: TShape;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
+    Shape6: TShape;
+    Shape8: TShape;
+    Shape9: TShape;
     SpeedButton2: TSpeedButton;
     CloseBtn: TSpeedButton;
-    SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
@@ -32,19 +36,18 @@ type
     procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure FormShow(Sender: TObject);
+    procedure Memo1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure Memo1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure Memo1MouseLeave(Sender: TObject);
     procedure Shape1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
     procedure CloseBtnClick(Sender: TObject);
     procedure Shape1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
+    procedure Shape3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: integer);
     procedure SNPaint;
     procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
-    procedure SpeedButton6Click(Sender: TObject);
-    procedure SpeedButton7Click(Sender: TObject);
-
   private
     FPosX, FPosY: integer;  //перемещение формы
     //Фиксация клика ЛКМ для исключения мерцания
@@ -86,8 +89,8 @@ begin
   //Штамп времени
   if not FileExists(GetUserDir + '.config/stickynotes/' + Self.Name) then
     Memo1.Lines.Add(StringReplace(Self.Name, 'NoteForm', SNoteNumber,
-      [rfReplaceAll, rfIgnoreCase]) + ': ' +
-      FormatDateTime('dd mmmm yyyy - hh:nn:ss', Now));
+      [rfReplaceAll, rfIgnoreCase]) + ': ' + FormatDateTime(
+      'dd mmmm yyyy - hh:nn:ss', Now));
 
   IniPropStorage1.Save;
 
@@ -97,6 +100,21 @@ begin
 
   //Отрисовка загнутого угла
   SNPaint;
+end;
+
+//Размер шрифта Ctrl+"+"/Ctrl+"-"
+procedure TNoteForm.Memo1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if ssCtrl in Shift then
+  begin
+    if Key = VK_ADD then
+      if Memo1.Font.Size < 20 then
+        Memo1.Font.Size := Memo1.Font.Size + 1;
+
+    if Key = VK_SUBTRACT then
+      if Memo1.Font.Size > 8 then
+        Memo1.Font.Size := Memo1.Font.Size - 1;
+  end;
 end;
 
 procedure TNoteForm.Memo1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -144,18 +162,6 @@ begin
   MainForm.NewNoteItem.Click;
 end;
 
-//Цвет заметки
-procedure TNoteForm.SpeedButton4Click(Sender: TObject);
-begin
-  ColorDialog1.Color := Color;
-  if ColorDialog1.Execute then
-  begin
-    Color := ColorDialog1.Color;
-    Shape1.Brush.Color := Color;
-    IniPropStorage1.Save;
-  end;
-end;
-
 //Удаление заметки
 procedure TNoteForm.SpeedButton5Click(Sender: TObject);
 begin
@@ -163,28 +169,6 @@ begin
   begin
     Close;
     DeleteFile(GetUserDir + '.config/stickynotes/' + Self.Name);
-  end;
-end;
-
-//Шрифт заметки
-procedure TNoteForm.SpeedButton6Click(Sender: TObject);
-begin
-  FontDialog1.Font := Memo1.Font;
-  if FontDialog1.Execute then
-  begin
-    Memo1.Font := FontDialog1.Font;
-    IniPropStorage1.Save;
-  end;
-end;
-
-//Цвет шрифта заметки
-procedure TNoteForm.SpeedButton7Click(Sender: TObject);
-begin
-  ColorDialog1.Color := Memo1.Font.Color;
-  if ColorDialog1.Execute then
-  begin
-    Memo1.Font.Color := ColorDialog1.Color;
-    IniPropStorage1.Save;
   end;
 end;
 
@@ -223,6 +207,15 @@ end;
 procedure TNoteForm.Shape1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: integer);
 begin
+  IniPropStorage1.Save;
+end;
+
+//Изменение цвета записки
+procedure TNoteForm.Shape3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: integer);
+begin
+  Color := (Sender as TShape).Brush.Color;
+  Shape1.Brush.Color := (Sender as TShape).Brush.Color;
   IniPropStorage1.Save;
 end;
 

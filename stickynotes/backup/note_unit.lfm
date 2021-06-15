@@ -1,14 +1,14 @@
 object NoteForm: TNoteForm
-  Left = 413
-  Height = 309
-  Top = 132
-  Width = 442
+  Left = 306
+  Height = 281
+  Top = 127
+  Width = 399
   AlphaBlend = True
   AlphaBlendValue = 245
   BorderStyle = bsNone
   Caption = 'NoteForm'
-  ClientHeight = 309
-  ClientWidth = 442
+  ClientHeight = 281
+  ClientWidth = 399
   Color = clYellow
   OnClose = FormClose
   OnMouseDown = FormMouseDown
@@ -18,28 +18,8 @@ object NoteForm: TNoteForm
   SessionProperties = 'Color;Height;Left;Memo1.Font;Memo1.Lines;Shape1.Brush;Top;Width'
   ShowInTaskBar = stNever
   LCLVersion = '2.0.12.0'
-  object SpeedButton4: TSpeedButton
-    Left = 0
-    Height = 32
-    Hint = 'Note color'
-    Top = 0
-    Width = 32
-    Caption = 'C'
-    Color = clDefault
-    Flat = True
-    Font.Height = -15
-    Font.Name = 'Sans'
-    Font.Style = [fsBold]
-    Images = ImageList1
-    ImageIndex = 4
-    OnClick = SpeedButton4Click
-    ShowCaption = False
-    ShowHint = True
-    ParentFont = False
-    ParentShowHint = False
-  end
   object SpeedButton2: TSpeedButton
-    Left = 374
+    Left = 330
     Height = 32
     Top = 0
     Width = 32
@@ -52,7 +32,7 @@ object NoteForm: TNoteForm
     ShowCaption = False
   end
   object CloseBtn: TSpeedButton
-    Left = 410
+    Left = 366
     Height = 32
     Top = 0
     Width = 32
@@ -69,15 +49,17 @@ object NoteForm: TNoteForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 4
-    Height = 239
-    Top = 34
-    Width = 434
+    Height = 205
+    Top = 40
+    Width = 391
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
     BorderStyle = bsNone
+    Font.Color = clBlack
     Font.Height = -15
     Font.Name = 'Sans'
+    OnKeyDown = Memo1KeyDown
     OnKeyUp = Memo1KeyUp
     OnMouseLeave = Memo1MouseLeave
     ParentColor = True
@@ -87,9 +69,9 @@ object NoteForm: TNoteForm
   end
   object Shape1: TShape
     Cursor = crSizeNW
-    Left = 409
+    Left = 366
     Height = 32
-    Top = 277
+    Top = 249
     Width = 33
     Anchors = [akRight, akBottom]
     Brush.Color = clYellow
@@ -99,7 +81,7 @@ object NoteForm: TNoteForm
     OnMouseUp = Shape1MouseUp
   end
   object SpeedButton5: TSpeedButton
-    Left = 338
+    Left = 294
     Height = 32
     Top = 0
     Width = 32
@@ -111,49 +93,98 @@ object NoteForm: TNoteForm
     OnClick = SpeedButton5Click
     ShowCaption = False
   end
-  object SpeedButton6: TSpeedButton
-    Left = 32
-    Height = 32
-    Hint = 'Note font'
-    Top = 0
-    Width = 32
-    Caption = 'F'
-    Color = clDefault
-    Flat = True
-    Font.Height = -15
-    Font.Name = 'Sans'
-    Font.Style = [fsBold]
-    Images = ImageList1
-    ImageIndex = 5
-    OnClick = SpeedButton6Click
-    ShowCaption = False
-    ShowHint = True
-    ParentFont = False
-    ParentShowHint = False
+  object Shape2: TShape
+    AnchorSideLeft.Control = Shape3
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 4319231
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
   end
-  object SpeedButton7: TSpeedButton
+  object Shape3: TShape
+    Cursor = crHandPoint
+    Left = 4
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = clYellow
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
+  end
+  object Shape4: TShape
+    AnchorSideLeft.Control = Shape9
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 124
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 13483519
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
+  end
+  object Shape5: TShape
+    AnchorSideLeft.Control = Shape2
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 44
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 11009959
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
+  end
+  object Shape6: TShape
+    AnchorSideLeft.Control = Shape8
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 84
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 16636377
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
+  end
+  object Shape8: TShape
+    AnchorSideLeft.Control = Shape5
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
     Left = 64
-    Height = 32
-    Hint = 'Note font color'
-    Top = 0
-    Width = 32
-    Caption = 'FC'
-    Color = clDefault
-    Flat = True
-    Font.Height = -15
-    Font.Name = 'Sans'
-    Font.Style = [fsBold]
-    Images = ImageList1
-    ImageIndex = 6
-    OnClick = SpeedButton7Click
-    ShowCaption = False
-    ShowHint = True
-    ParentFont = False
-    ParentShowHint = False
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 4979560
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
+  end
+  object Shape9: TShape
+    AnchorSideLeft.Control = Shape6
+    AnchorSideLeft.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 104
+    Height = 15
+    Top = 7
+    Width = 20
+    Brush.Color = 15265459
+    Pen.Color = clGray
+    OnMouseDown = Shape3MouseDown
+    Shape = stCircle
   end
   object ImageList1: TImageList
     Left = 128
-    Top = 8
+    Top = 192
     Bitmap = {
       4C69070000001000000010000000000000000000000000000000000000000000
       0000202020FF202020FF202020FF202020FF202020FF202020FF000000000000
