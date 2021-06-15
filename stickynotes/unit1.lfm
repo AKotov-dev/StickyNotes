@@ -1267,13 +1267,14 @@ object MainForm: TMainForm
   object OpenDialog1: TOpenDialog
     FileName = 'StickyNotes.tar.gz'
     Filter = 'StickyNotes Import (*.tar.gz)|StickyNotes.tar.gz'
+    Options = [ofNoNetworkButton, ofEnableSizing, ofViewDetail]
     Left = 200
     Top = 16
   end
   object SaveDialog1: TSaveDialog
     FileName = 'StickyNotes.tar.gz'
     Filter = 'StickyNotes export (*.tar.gz)|*.tar.gz'
-    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Options = [ofOverwritePrompt, ofNoNetworkButton, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 18
   end

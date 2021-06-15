@@ -200,11 +200,11 @@ procedure TMainForm.ExportItemClick(Sender: TObject);
 var
   s: ansistring;
 begin
+  //Закрываем все открытые записки
+  CloseAllItem.Click;
+
   if SaveDialog1.Execute then
   begin
-    //Закрываем все открытые записки
-    CloseAllItem.Click;
-
     //Экспорт
     RunCommand('/bin/bash', ['-c', 'tar -czf "' + SaveDialog1.FileName +
       '" -C ~/.config/stickynotes .'], s);
@@ -225,11 +225,11 @@ procedure TMainForm.ImportItemClick(Sender: TObject);
 var
   s: ansistring;
 begin
+  //Закрываем все открытые записки (диалоги модальны)
+  CloseAllItem.Click;
+
   if OpenDialog1.Execute then
   begin
-    //Закрываем все открытые записки
-    CloseAllItem.Click;
-
     //Импорт
     RunCommand('/bin/bash', ['-c', 'rm -f ~/.config/stickynotes/*; tar -xvf "' +
       OpenDialog1.FileName + '" -C ~/.config/stickynotes'], s);

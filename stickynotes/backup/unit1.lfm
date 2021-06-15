@@ -1273,7 +1273,7 @@ object MainForm: TMainForm
   object SaveDialog1: TSaveDialog
     FileName = 'StickyNotes.tar.gz'
     Filter = 'StickyNotes export (*.tar.gz)|*.tar.gz'
-    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Options = [ofOverwritePrompt, ofNoNetworkButton, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 18
   end
