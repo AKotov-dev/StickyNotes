@@ -93,6 +93,10 @@ msgstr "Показать все"
 msgid "NoteForm"
 msgstr ""
 
+#: tnoteform.memo1.hint
+msgid "Font size: Ctrl+/-"
+msgstr "Размер шрифта: Ctrl+/-"
+
 #: unit1.sexportmessage
 msgid "Exporting notes completed..."
 msgstr "Экспорт заметок завершен..."
@@ -108,4 +112,3 @@ msgstr "Импорт заметок завершен..."
 #: unit1.simporttitle
 msgid "Import notes"
 msgstr "Импорт заметок"
-

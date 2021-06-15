@@ -1,3 +1,4 @@
 {"version":1,"strings":[
-{"hash":111793117,"name":"tnoteform.caption","sourcebytes":[78,111,116,101,70,111,114,109],"value":"NoteForm"}
+{"hash":111793117,"name":"tnoteform.caption","sourcebytes":[78,111,116,101,70,111,114,109],"value":"NoteForm"},
+{"hash":73283629,"name":"tnoteform.memo1.hint","sourcebytes":[70,111,110,116,32,115,105,122,101,58,32,67,116,114,108,43,47,45],"value":"Font size: Ctrl+/-"}
 ]}

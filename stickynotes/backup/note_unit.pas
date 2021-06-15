@@ -96,7 +96,6 @@ begin
 
   //Каретка в конец
   Memo1.SelStart := Length(Memo1.Text);
-  //IniPropStorage1.Save;
 
   //Отрисовка загнутого угла
   SNPaint;

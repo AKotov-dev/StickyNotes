@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 306
+  Left = 303
   Height = 281
-  Top = 127
+  Top = 124
   Width = 399
   AlphaBlend = True
   AlphaBlendValue = 245
@@ -50,6 +50,7 @@ object NoteForm: TNoteForm
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 205
+    Hint = 'Font size: Ctrl+/-'
     Top = 40
     Width = 391
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -58,12 +59,14 @@ object NoteForm: TNoteForm
     BorderStyle = bsNone
     Font.Color = clBlack
     Font.Height = -15
-    Font.Name = 'Sans'
+    Font.Name = 'Liberation Sans'
     OnKeyDown = Memo1KeyDown
     OnKeyUp = Memo1KeyUp
     OnMouseLeave = Memo1MouseLeave
     ParentColor = True
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 0
     WantTabs = True
   end
@@ -177,7 +180,7 @@ object NoteForm: TNoteForm
     Height = 15
     Top = 7
     Width = 20
-    Brush.Color = 15265459
+    Brush.Color = 15659962
     Pen.Color = clGray
     OnMouseDown = Shape3MouseDown
     Shape = stCircle
