@@ -8,4 +8,4 @@ Made in Mageia-8, additionally tested in Linux Mint-20.
 
 Сделано в Mageia-8, дополнительно протестировано в Linux Mint-20.
 
-![](https://github.com/AKotov-dev/protonvpn-gui/blob/main/ScreenShots/ProtonVPN-GUI-2.png)
+![](https://github.com/AKotov-dev/StickyNotes/blob/main/ScreenShot.png)
