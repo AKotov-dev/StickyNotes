@@ -13,8 +13,6 @@ type
   { TNoteForm }
 
   TNoteForm = class(TForm)
-    ColorDialog1: TColorDialog;
-    FontDialog1: TFontDialog;
     ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
     Memo1: TMemo;
