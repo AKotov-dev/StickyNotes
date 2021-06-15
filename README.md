@@ -1,6 +1,6 @@
-Colorful Sticky Notes
+Sticky Notes
 --
-Simple, colorful notes for everyday work. The size of the note changes  the lower-right corner. Individual note colors, font color, and font style can be customized. It is possible to export and import all notes to a file.
+Simple, colorful stycky notes for everyday work. The size of the note changes  the lower-right corner. Individual note colors, font color, and font style can be customized. It is possible to export and import all notes to a file.
 
 Made in Mageia-8, additionally tested in Linux Mint-20.
 
