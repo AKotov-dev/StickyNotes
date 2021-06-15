@@ -59,7 +59,7 @@ object NoteForm: TNoteForm
     BorderStyle = bsNone
     Font.Color = clBlack
     Font.Height = -15
-    Font.Name = 'Liberation Sans'
+    Font.Name = 'Sans'
     OnKeyDown = Memo1KeyDown
     OnKeyUp = Memo1KeyUp
     OnMouseLeave = Memo1MouseLeave

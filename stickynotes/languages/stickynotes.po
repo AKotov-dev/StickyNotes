@@ -76,7 +76,7 @@ msgid "NoteForm"
 msgstr ""
 
 #: tnoteform.memo1.hint
-msgid "Font size: Ctrl+/-"
+msgid "Font size: Ctrl +/-"
 msgstr ""
 
 #: unit1.sexportmessage

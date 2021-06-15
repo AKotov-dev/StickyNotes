@@ -50,7 +50,7 @@ object NoteForm: TNoteForm
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 205
-    Hint = 'Font size: Ctrl+/-'
+    Hint = 'Font size: Ctrl +/-'
     Top = 40
     Width = 391
     Anchors = [akTop, akLeft, akRight, akBottom]
