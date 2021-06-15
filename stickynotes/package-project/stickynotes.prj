@@ -25,7 +25,7 @@ vendor=alex_q_2000 (C) 2021
 summary=Colorful Sticky Notes
 
 [URLCOPY]
-urlcopy=111
+urlcopy=https://github.com/AKotov-dev/StickyNotes
 
 [LICENSE]
 license=GPLv3
@@ -53,10 +53,10 @@ deb=1
 4=/usr/share/doc/stickynotes/
 
 [URL32]
-url32=11
+url32=https://github.com/AKotov-dev/StickyNotes
 
 [URL64]
-url64=
+url64=https://github.com/AKotov-dev/StickyNotes
 
 [PROGRAMNAME]
 programname=Sticky Notes
