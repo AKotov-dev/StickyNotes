@@ -13,12 +13,11 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='StickyNotes v0.3';
+  Application.Title:='StickyNotes v0.4';
   Application.Scaled := True;
   Application.Initialize;
   Application.ShowMainForm := False;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TAboutForm, AboutForm);
   Application.Run;
 end.
 

@@ -18,6 +18,8 @@ type
     Label1: TLabel;
     Label3: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -36,6 +38,16 @@ implementation
 procedure TAboutForm.Button1Click(Sender: TObject);
 begin
   AboutForm.Close;
+end;
+
+procedure TAboutForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction := CaFree;
+end;
+
+procedure TAboutForm.FormShow(Sender: TObject);
+begin
+  Label1.Caption := Application.Title;
 end;
 
 end.

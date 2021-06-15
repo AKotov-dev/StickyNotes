@@ -167,6 +167,9 @@ begin
 
   if not DirectoryExists(GetUserDir + '.config/stickynotes') then
     MkDir(GetUserDir + '.config/stickynotes');
+
+  //Сразу показываем заметки
+  ShowAllItem.Click;
 end;
 
 //Добавить новую записку
