@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":57744467,"name":"unit1.simporttitle","sourcebytes":[73,109,112,111,114,116,32,110,111,116,101,115],"value":"Import notes"},
+{"hash":199203998,"name":"unit1.simportmessage","sourcebytes":[73,109,112,111,114,116,105,110,103,32,110,111,116,101,115,32,99,111,109,112,108,101,116,101,100,46,46,46],"value":"Importing notes completed..."},
+{"hash":45882451,"name":"unit1.sexporttitle","sourcebytes":[69,120,112,111,114,116,32,110,111,116,101,115],"value":"Export notes"},
+{"hash":187028382,"name":"unit1.sexportmessage","sourcebytes":[69,120,112,111,114,116,105,110,103,32,110,111,116,101,115,32,99,111,109,112,108,101,116,101,100,46,46,46],"value":"Exporting notes completed..."}
+]}

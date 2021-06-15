@@ -1,0 +1,20 @@
+object SettingsForm: TSettingsForm
+  Left = 414
+  Height = 361
+  Top = 201
+  Width = 559
+  Caption = 'SettingsForm'
+  ClientHeight = 361
+  ClientWidth = 559
+  LCLVersion = '2.0.12.0'
+  object ColorButton1: TColorButton
+    Left = 24
+    Height = 41
+    Top = 24
+    Width = 152
+    BorderWidth = 2
+    ButtonColorSize = 16
+    ButtonColor = clBlack
+    OnColorChanged = ColorButton1ColorChanged
+  end
+end

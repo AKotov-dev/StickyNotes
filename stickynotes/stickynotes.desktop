@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=StickyNotes (Sticky notes)
+Name[ru]=StickyNotes (Липкие заметки)
+Comment=Sticky Notes
+Comment[ru]=Липкие заметки
+Icon=stickynotes
+Exec=stickynotes
+Type=Application
+Categories=Utility
+Terminal=false

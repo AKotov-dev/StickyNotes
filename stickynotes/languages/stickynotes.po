@@ -1,0 +1,117 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: note_unit.sdeletenote
+msgid "Delete this note?"
+msgstr ""
+
+#: note_unit.snotenumber
+msgid "Note"
+msgstr ""
+
+#: taboutform.button1.caption
+msgid "Ok"
+msgstr ""
+
+#: taboutform.caption
+msgctxt "taboutform.caption"
+msgid "About"
+msgstr ""
+
+#: taboutform.label1.caption
+msgid "StickyNotes v0.2"
+msgstr ""
+
+#: taboutform.label3.caption
+msgid ""
+"Colorful Sticky Notes\n"
+"\n"
+"License: GPLv3\n"
+"Compilation: Lazarus 2.0.12\n"
+"Author: alex_q_2000 (C) 2021\n"
+"\n"
+"Russian Linux Forum:\n"
+"https://linuxforum.ru\n"
+msgstr ""
+
+#: tmainform.aboutitem.caption
+msgctxt "tmainform.aboutitem.caption"
+msgid "About"
+msgstr ""
+
+#: tmainform.autostartitem.caption
+msgid "Autostart"
+msgstr ""
+
+#: tmainform.caption
+msgid "MainForm"
+msgstr ""
+
+#: tmainform.closeallitem.caption
+msgid "Close all"
+msgstr ""
+
+#: tmainform.exititem.caption
+msgid "Exit"
+msgstr ""
+
+#: tmainform.exportitem.caption
+msgid "Export"
+msgstr ""
+
+#: tmainform.importitem.caption
+msgid "Import"
+msgstr ""
+
+#: tmainform.newnoteitem.caption
+msgid "New Note"
+msgstr ""
+
+#: tmainform.showallitem.caption
+msgid "Show all"
+msgstr ""
+
+#: tnoteform.caption
+msgid "NoteForm"
+msgstr ""
+
+#: tnoteform.speedbutton4.caption
+msgid "C"
+msgstr ""
+
+#: tnoteform.speedbutton4.hint
+msgid "Note color"
+msgstr ""
+
+#: tnoteform.speedbutton6.caption
+msgid "F"
+msgstr ""
+
+#: tnoteform.speedbutton6.hint
+msgid "Note font"
+msgstr ""
+
+#: tnoteform.speedbutton7.caption
+msgid "FC"
+msgstr ""
+
+#: tnoteform.speedbutton7.hint
+msgid "Note font color"
+msgstr ""
+
+#: unit1.sexportmessage
+msgid "Exporting notes completed..."
+msgstr ""
+
+#: unit1.sexporttitle
+msgid "Export notes"
+msgstr ""
+
+#: unit1.simportmessage
+msgid "Importing notes completed..."
+msgstr ""
+
+#: unit1.simporttitle
+msgid "Import notes"
+msgstr ""
+

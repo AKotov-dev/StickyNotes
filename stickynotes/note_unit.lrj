@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":111793117,"name":"tnoteform.caption","sourcebytes":[78,111,116,101,70,111,114,109],"value":"NoteForm"},
+{"hash":124589506,"name":"tnoteform.speedbutton4.hint","sourcebytes":[78,111,116,101,32,99,111,108,111,114],"value":"Note color"},
+{"hash":67,"name":"tnoteform.speedbutton4.caption","sourcebytes":[67],"value":"C"},
+{"hash":175546676,"name":"tnoteform.speedbutton6.hint","sourcebytes":[78,111,116,101,32,102,111,110,116],"value":"Note font"},
+{"hash":70,"name":"tnoteform.speedbutton6.caption","sourcebytes":[70],"value":"F"},
+{"hash":203490386,"name":"tnoteform.speedbutton7.hint","sourcebytes":[78,111,116,101,32,102,111,110,116,32,99,111,108,111,114],"value":"Note font color"},
+{"hash":1187,"name":"tnoteform.speedbutton7.caption","sourcebytes":[70,67],"value":"FC"}
+]}

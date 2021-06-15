@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":258606927,"name":"note_unit.sdeletenote","sourcebytes":[68,101,108,101,116,101,32,116,104,105,115,32,110,111,116,101,63],"value":"Delete this note?"},
+{"hash":349861,"name":"note_unit.snotenumber","sourcebytes":[78,111,116,101],"value":"Note"}
+]}

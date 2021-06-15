@@ -1,0 +1,73 @@
+[NAME]
+name=styckynotes
+
+[VERSION]
+version=0.2
+
+[RELEASE]
+release=0.mrx8
+
+[GROUP]
+group=Applications/Text
+
+[DESCRIPTION]
+0=Simple, colorful sticky notes to use at work every day
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2021
+
+[SUMMARY]
+summary=Colorful Sticky Notes
+
+[URLCOPY]
+urlcopy=111
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[SIGN]
+sign=0
+
+[DEB]
+deb=1
+
+[FILES]
+0=/bin/stickynotes
+1=/usr/share/stickynotes/
+2=/usr/share/applications/stickynotes.desktop
+3=/usr/share/icons/stickynotes.png
+4=/usr/share/doc/stickynotes/
+
+[URL32]
+url32=11
+
+[URL64]
+url64=
+
+[PROGRAMNAME]
+programname=Sticky Notes
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=2.0.12
+
+[INFO]
+0=Simple, colorful sticky notes to use at work every day
+1=
+2=v0.2 - initial version
