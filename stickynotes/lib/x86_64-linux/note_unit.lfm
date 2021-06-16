@@ -1,9 +1,9 @@
 object NoteForm: TNoteForm
-  Left = 309
+  Left = 432
   Height = 286
-  Top = 195
+  Top = 154
   Width = 418
-  AlphaBlendValue = 240
+  AlphaBlendValue = 200
   BorderStyle = bsNone
   Caption = 'NoteForm'
   ClientHeight = 286

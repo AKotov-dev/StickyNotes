@@ -99,8 +99,9 @@ begin
         begin
           NoteForm := TNoteForm.Create(Self);
           NoteForm.Name := SR.Name;
-          //+Прозрачность
-          NoteForm.AlphaBlend:=TransparencyItem.Checked;
+          //+Прозрачность от MainForm
+          NoteForm.AlphaBlend:=MainForm.AlphaBlend;
+
           NoteForm.Show;
         end;
       until FindNext(SR) <> 0
@@ -109,7 +110,7 @@ begin
     end;
 end;
 
-//Переключение прозрачности
+//Переключение прозрачности всех видимых заметок
 procedure TMainForm.TransparencyItemClick(Sender: TObject);
 var
   i: integer;
@@ -119,19 +120,12 @@ begin
   else
     TransparencyItem.Checked := True;
 
-  IniPropStorage1.StoredValue['trans'] := BoolToStr(TransparencyItem.Checked);
+  MainForm.AlphaBlend:= TransparencyItem.Checked;
   IniPropStorage1.Save;
 
-  if not TransparencyItem.Checked then
-  begin
-    for i := 0 to Screen.FormCount - 1 do
+  for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-        Screen.Forms[i].AlphaBlend := False;
-  end
-  else
-    for i := 0 to Screen.FormCount - 1 do
-      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-        Screen.Forms[i].AlphaBlend := True;
+        Screen.Forms[i].AlphaBlend := MainForm.AlphaBlend;
 end;
 
 //Показать/Скрыть все
@@ -162,9 +156,6 @@ begin
   //Контроль автостарта
   if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
     AutoStartItem.Checked := True;
-
-  //+Прозрачность
-  TransparencyItem.Checked := StrToBool(IniPropStorage1.StoredValue['trans']);
 end;
 
 //Показать все
@@ -205,8 +196,11 @@ begin
     MkDir(GetUserDir + '.config/stickynotes');
 
   IniPropStorage1.IniFileName := GetUserDir + '.config/stickynotes/settings.conf';
-  //+Прозрачность (чекер PopUpMenu)
-  TransparencyItem.Checked := StrToBool(IniPropStorage1.StoredValue['trans']);
+  //Вытаскиваем Default-настройки
+  IniPropStorage1.Restore;
+  
+  //+Прозрачность
+  TransparencyItem.Checked := MainForm.AlphaBlend;
 
   //Сразу показываем заметки
   ShowAllItem.Click;
