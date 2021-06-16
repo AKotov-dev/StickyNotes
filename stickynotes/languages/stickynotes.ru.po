@@ -89,6 +89,11 @@ msgstr "Новая заметка"
 msgid "Show all"
 msgstr "Показать все"
 
+#: tmainform.transparencyitem.caption
+msgctxt "tmainform.transparencyitem.caption"
+msgid "Transparency"
+msgstr "Прозрачность"
+
 #: tnoteform.caption
 msgid "NoteForm"
 msgstr ""

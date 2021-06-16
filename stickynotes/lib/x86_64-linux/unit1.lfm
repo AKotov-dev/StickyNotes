@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 305
   Height = 88
   Top = 124
   Width = 353
@@ -1231,6 +1231,13 @@ object MainForm: TMainForm
       Caption = 'Close all'
       OnClick = CloseAllItemClick
     end
+    object N6: TMenuItem
+      Caption = '-'
+    end
+    object TransparencyItem: TMenuItem
+      Caption = 'Transparency'
+      OnClick = TransparencyItemClick
+    end
     object N1: TMenuItem
       Caption = '-'
     end
@@ -1273,7 +1280,7 @@ object MainForm: TMainForm
   end
   object SaveDialog1: TSaveDialog
     FileName = 'StickyNotes.tar.gz'
-    Filter = 'StickyNotes export (*.tar.gz)|*.tar.gz'
+    Filter = 'StickyNotes Export (*.tar.gz)|*.tar.gz'
     Options = [ofOverwritePrompt, ofNoNetworkButton, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 18

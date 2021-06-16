@@ -71,6 +71,11 @@ msgstr ""
 msgid "Show all"
 msgstr ""
 
+#: tmainform.transparencyitem.caption
+msgctxt "tmainform.transparencyitem.caption"
+msgid "Transparency"
+msgstr ""
+
 #: tnoteform.caption
 msgid "NoteForm"
 msgstr ""

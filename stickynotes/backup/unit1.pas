@@ -15,6 +15,8 @@ type
   TMainForm = class(TForm)
     ExitItem: TMenuItem;
     AboutItem: TMenuItem;
+    TransparencyItem: TMenuItem;
+    N6: TMenuItem;
     N5: TMenuItem;
     NewNoteItem: TMenuItem;
     ExportItem: TMenuItem;
@@ -41,6 +43,7 @@ type
     procedure ShowAllItemClick(Sender: TObject);
     procedure CloseAllItemClick(Sender: TObject);
     procedure ShowAllNotes;
+    procedure TransparencyItemClick(Sender: TObject);
     procedure TrayIcon1DblClick(Sender: TObject);
 
   private
@@ -103,6 +106,27 @@ begin
     end;
 end;
 
+//Переключение прозрачности
+procedure TMainForm.TransparencyItemClick(Sender: TObject);
+var
+  i: integer;
+begin
+  if NameForm.AlphaBlend then
+  begin
+  for i := 0 to Screen.FormCount - 1 do
+      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+        Screen.Forms[i].AlphaBlend := False;
+      end
+  else
+
+  for i := 0 to Screen.FormCount - 1 do
+      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+        Screen.Forms[i].AlphaBlend := True;
+
+
+    ShowAllItem.Click;
+end;
+
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 var
   i: integer;
@@ -127,8 +151,15 @@ end;
 
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);
 begin
+  //Контроль автостарта
   if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
     AutoStartItem.Checked := True;
+
+  //Контроль прозрачности
+  if NoteForm.AlphaBlend then
+    TransparencyItem.Checked := True
+  else
+    TransparencyItem.Checked := False;
 end;
 
 //Показать все
@@ -220,6 +251,7 @@ end;
 
 procedure TMainForm.AboutItemClick(Sender: TObject);
 begin
+  AboutForm := TAboutForm.Create(Self);
   AboutForm.Show;
 end;
 
