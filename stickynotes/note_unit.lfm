@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 391
+  Left = 313
   Height = 286
-  Top = 161
+  Top = 125
   Width = 418
   AlphaBlendValue = 240
   BorderStyle = bsNone
@@ -49,7 +49,6 @@ object NoteForm: TNoteForm
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 210
-    Hint = 'Font size: Ctrl +/-'
     Top = 40
     Width = 410
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -62,7 +61,6 @@ object NoteForm: TNoteForm
     ParentColor = True
     ParentShowHint = False
     ScrollBars = ssAutoVertical
-    ShowHint = True
     TabOrder = 0
     WantTabs = True
   end

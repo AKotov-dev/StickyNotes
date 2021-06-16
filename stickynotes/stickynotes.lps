@@ -89,7 +89,7 @@
         <UsageCount Value="20"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="122" Column="44" TopLine="112"/>
@@ -204,12 +204,8 @@
       </Position28>
       <Position29>
         <Filename Value="unit1.pas"/>
-        <Caret Line="160" Column="3" TopLine="299"/>
-      </Position29>
-      <Position30>
-        <Filename Value="unit1.pas"/>
         <Caret Line="311" TopLine="297"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
