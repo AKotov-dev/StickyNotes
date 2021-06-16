@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 318
+  Left = 321
   Height = 286
-  Top = 166
+  Top = 132
   Width = 418
   AlphaBlendValue = 240
   BorderStyle = bsNone
@@ -14,7 +14,7 @@ object NoteForm: TNoteForm
   OnMouseMove = FormMouseMove
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  SessionProperties = 'Color;Height;Left;Memo1.Font;Memo1.Lines;Shape1.Brush;Top;Width;AlphaBlend'
+  SessionProperties = 'Color;Height;Left;Memo1.Font;Memo1.Lines;Shape1.Brush;Top;Width'
   ShowInTaskBar = stNever
   LCLVersion = '2.0.12.0'
   object SpeedButton2: TSpeedButton

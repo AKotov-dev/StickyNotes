@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 305
-  Height = 88
+  Left = 304
+  Height = 138
   Top = 124
   Width = 353
   BorderIcons = []
@@ -1284,5 +1284,14 @@ object MainForm: TMainForm
     Options = [ofOverwritePrompt, ofNoNetworkButton, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 18
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <    
+      item
+        Name = 'transparency'
+        Value = '0'
+      end>
+    Left = 152
+    Top = 80
   end
 end

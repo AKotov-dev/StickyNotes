@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ComCtrls, Buttons, Menus, FileUtil, Process;
+  ComCtrls, Buttons, Menus, IniPropStorage, FileUtil, Process;
 
 type
 
@@ -15,6 +15,7 @@ type
   TMainForm = class(TForm)
     ExitItem: TMenuItem;
     AboutItem: TMenuItem;
+    IniPropStorage1: TIniPropStorage;
     TransparencyItem: TMenuItem;
     N6: TMenuItem;
     N5: TMenuItem;
@@ -75,7 +76,7 @@ var
   SR: TSearchRec;
 begin
   Result := 0;
-  if FindFirst(GetUserDir + '.config/stickynotes/*', faAnyFile, SR) = 0 then
+  if FindFirst(GetUserDir + '.config/stickynotes/NoteForm*', faAnyFile, SR) = 0 then
     try
       repeat
         if SR.Attr and faDirectory = 0 then
@@ -91,13 +92,15 @@ procedure TMainForm.ShowAllNotes;
 var
   SR: TSearchRec;
 begin
-  if FindFirst(GetUserDir + '.config/stickynotes/*', faAnyFile, SR) = 0 then
+  if FindFirst(GetUserDir + '.config/stickynotes/NoteForm*', faAnyFile, SR) = 0 then
     try
       repeat
         if SR.Attr and faDirectory = 0 then
         begin
           NoteForm := TNoteForm.Create(Self);
           NoteForm.Name := SR.Name;
+          //+Прозрачность
+          NoteForm.AlphaBlend:=TransparencyItem.Checked;
           NoteForm.Show;
         end;
       until FindNext(SR) <> 0
@@ -111,21 +114,27 @@ procedure TMainForm.TransparencyItemClick(Sender: TObject);
 var
   i: integer;
 begin
-  if NoteForm.AlphaBlend then
+  if TransparencyItem.Checked then
+    TransparencyItem.Checked := False
+  else
+    TransparencyItem.Checked := True;
+
+  IniPropStorage1.StoredValue['transparency'] := BoolToStr(TransparencyItem.Checked);
+  IniPropStorage1.Save;
+
+  if not TransparencyItem.Checked then
   begin
     for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
         Screen.Forms[i].AlphaBlend := False;
   end
   else
-
     for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
         Screen.Forms[i].AlphaBlend := True;
-
-  ShowAllItem.Click;
 end;
 
+//Показать/Скрыть все
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 var
   i: integer;
@@ -154,11 +163,8 @@ begin
   if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
     AutoStartItem.Checked := True;
 
-  //Контроль прозрачности
-  if NoteForm.AlphaBlend then
-    TransparencyItem.Checked := True
-  else
-    TransparencyItem.Checked := False;
+  //+Прозрачность
+  TransparencyItem.Checked := StrToBool(IniPropStorage1.StoredValue['transparency']);
 end;
 
 //Показать все
@@ -198,6 +204,10 @@ begin
   if not DirectoryExists(GetUserDir + '.config/stickynotes') then
     MkDir(GetUserDir + '.config/stickynotes');
 
+  IniPropStorage1.IniFileName := GetUserDir + '.config/stickynotes/settings.conf';
+  //+Прозрачность (чекер PopUpMenu)
+  TransparencyItem.Checked := StrToBool(IniPropStorage1.StoredValue['transparency']);
+
   //Сразу показываем заметки
   ShowAllItem.Click;
 end;
@@ -211,6 +221,8 @@ begin
   if not FileExists(GetUserDir + '.config/stickynotes/NoteForm') then
   begin
     NoteForm := TNoteForm.Create(Self);
+    //+Прозрачность
+    NoteForm.AlphaBlend := TransparencyItem.Checked;
     NoteForm.Show;
     Exit;
   end;
@@ -222,6 +234,8 @@ begin
     begin
       NoteForm := TNoteForm.Create(Self);
       NoteForm.Name := 'NoteForm_' + IntToStr(i);
+      //+Прозрачность
+      NoteForm.AlphaBlend := TransparencyItem.Checked;
       NoteForm.Show;
       Exit;
     end;
