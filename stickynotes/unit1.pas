@@ -15,7 +15,9 @@ type
   TMainForm = class(TForm)
     ExitItem: TMenuItem;
     AboutItem: TMenuItem;
+    FontDialog1: TFontDialog;
     IniPropStorage1: TIniPropStorage;
+    FontItem: TMenuItem;
     TransparencyItem: TMenuItem;
     N6: TMenuItem;
     N5: TMenuItem;
@@ -35,6 +37,7 @@ type
     TrayIcon1: TTrayIcon;
     procedure AboutItemClick(Sender: TObject);
     procedure ExportItemClick(Sender: TObject);
+    procedure FontItemClick(Sender: TObject);
     procedure ImportItemClick(Sender: TObject);
     procedure NewNoteItemClick(Sender: TObject);
     procedure AutoStartItemClick(Sender: TObject);
@@ -101,7 +104,7 @@ begin
           NoteForm.Name := SR.Name;
           //+Прозрачность от MainForm
           NoteForm.AlphaBlend := MainForm.AlphaBlend;
-
+          NoteForm.Font := MainForm.Font;
           NoteForm.Show;
         end;
       until FindNext(SR) <> 0
@@ -164,9 +167,7 @@ var
   i: integer;
 begin
   //Закрываем все заметки
-  for i := Screen.FormCount - 1 downto 0 do
-    if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-      Screen.Forms[i].Close;
+  CloseAllItem.Click;
 
   Application.ProcessMessages;   //тут не освобождалась форма!
 
@@ -217,6 +218,7 @@ begin
     NoteForm := TNoteForm.Create(Self);
     //+Прозрачность
     NoteForm.AlphaBlend := MainForm.AlphaBlend;
+    NoteForm.Font := MainForm.Font;
     NoteForm.Show;
     Exit;
   end;
@@ -230,6 +232,7 @@ begin
       NoteForm.Name := 'NoteForm_' + IntToStr(i);
       //+Прозрачность
       NoteForm.AlphaBlend := MainForm.AlphaBlend;
+      NoteForm.Font := MainForm.Font;
       NoteForm.Show;
       Exit;
     end;
@@ -253,6 +256,24 @@ begin
     TrayIcon1.BalloonTitle := SExportTitle;
     TrayIcon1.BalloonHint := SExportMessage;
     TrayIcon1.ShowBalloonHint;
+  end;
+end;
+
+procedure TMainForm.FontItemClick(Sender: TObject);
+var
+  i: integer;
+begin
+  FontDialog1.Font := MainForm.Font;
+
+  if FontDialog1.Execute then
+  begin
+    MainForm.Font := FontDialog1.Font;
+
+    for i := 0 to Screen.FormCount - 1 do
+      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+        Screen.Forms[i].Font := MainForm.Font;
+
+    IniPropStorage1.Save;
   end;
 end;
 

@@ -9,7 +9,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   ParentDoubleBuffered = False
   Position = poDesktopCenter
-  SessionProperties = 'AlphaBlend;Caption'
+  SessionProperties = 'AlphaBlend;Font'
   ShowInTaskBar = stNever
   LCLVersion = '2.0.12.0'
   object TrayIcon1: TTrayIcon
@@ -1235,6 +1235,10 @@ object MainForm: TMainForm
     object N6: TMenuItem
       Caption = '-'
     end
+    object FontItem: TMenuItem
+      Caption = 'Font'
+      OnClick = FontItemClick
+    end
     object TransparencyItem: TMenuItem
       Caption = 'Transparency'
       OnClick = TransparencyItemClick
@@ -1290,5 +1294,11 @@ object MainForm: TMainForm
     StoredValues = <>
     Left = 152
     Top = 80
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 253
+    Top = 84
   end
 end

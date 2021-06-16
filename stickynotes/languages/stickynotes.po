@@ -59,6 +59,10 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+#: tmainform.fontitem.caption
+msgid "Font"
+msgstr ""
+
 #: tmainform.importitem.caption
 msgid "Import"
 msgstr ""

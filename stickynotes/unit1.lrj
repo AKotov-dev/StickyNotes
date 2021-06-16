@@ -3,6 +3,7 @@
 {"hash":211112933,"name":"tmainform.newnoteitem.caption","sourcebytes":[78,101,119,32,78,111,116,101],"value":"New Note"},
 {"hash":258565052,"name":"tmainform.showallitem.caption","sourcebytes":[83,104,111,119,32,97,108,108],"value":"Show all"},
 {"hash":110571036,"name":"tmainform.closeallitem.caption","sourcebytes":[67,108,111,115,101,32,97,108,108],"value":"Close all"},
+{"hash":317012,"name":"tmainform.fontitem.caption","sourcebytes":[70,111,110,116],"value":"Font"},
 {"hash":53494025,"name":"tmainform.transparencyitem.caption","sourcebytes":[84,114,97,110,115,112,97,114,101,110,99,121],"value":"Transparency"},
 {"hash":84178580,"name":"tmainform.importitem.caption","sourcebytes":[73,109,112,111,114,116],"value":"Import"},
 {"hash":80705172,"name":"tmainform.exportitem.caption","sourcebytes":[69,120,112,111,114,116],"value":"Export"},
