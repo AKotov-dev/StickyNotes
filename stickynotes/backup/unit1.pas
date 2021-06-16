@@ -160,12 +160,13 @@ begin
   //Контроль автостарта
   if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
     AutoStartItem.Checked := True;
+
+  //+Прозрачность
+  TransparencyItem.Checked := MainForm.AlphaBlend;
 end;
 
 //Показать все
 procedure TMainForm.ShowAllItemClick(Sender: TObject);
-var
-  i: integer;
 begin
   //Закрываем все заметки
   CloseAllItem.Click;
@@ -267,7 +268,6 @@ var
   i: integer;
 begin
   FontDialog1.Font := MainForm.Font;
-
   if FontDialog1.Execute then
   begin
     MainForm.Font := FontDialog1.Font;
@@ -306,6 +306,9 @@ begin
     TrayIcon1.BalloonTitle := SImportTitle;
     TrayIcon1.BalloonHint := SImportMessage;
     TrayIcon1.ShowBalloonHint;
+
+    //Вытаскиваем настройки MainForm (Font и AlphaBlend)
+    IniPropStorage1.Restore;
   end;
 end;
 
