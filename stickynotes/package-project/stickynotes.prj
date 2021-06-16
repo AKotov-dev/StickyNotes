@@ -2,7 +2,7 @@
 name=stickynotes
 
 [VERSION]
-version=0.3
+version=0.4
 
 [RELEASE]
 release=0.mrx8
@@ -70,4 +70,15 @@ toolversion=2.0.12
 [INFO]
 0=Simple, colorful sticky notes to use at work every day
 1=
-2=v0.2 - initial version
+2=v0.4
+3=+ display of notes at startup/autostart
+4=+ closing notes before importing/exporting
+5=+ vertical autoscroll
+6=+ transparency enable/disable
+7=
+8=v0.3
+9=+ font size changes Ctrl +/-
+10=+ black font for all DE color schemes
+11=+ preset colors that speed up your selection
+12=
+13=v0.2 - initial version

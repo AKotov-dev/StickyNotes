@@ -113,18 +113,17 @@ var
 begin
   if NoteForm.AlphaBlend then
   begin
-  for i := 0 to Screen.FormCount - 1 do
+    for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
         Screen.Forms[i].AlphaBlend := False;
-      end
+  end
   else
 
-  for i := 0 to Screen.FormCount - 1 do
+    for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
         Screen.Forms[i].AlphaBlend := True;
 
-
-    ShowAllItem.Click;
+  ShowAllItem.Click;
 end;
 
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
