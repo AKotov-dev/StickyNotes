@@ -2,10 +2,10 @@ object AboutForm: TAboutForm
   Left = 424
   Height = 241
   Top = 179
-  Width = 366
+  Width = 371
   Caption = 'About'
   ClientHeight = 241
-  ClientWidth = 366
+  ClientWidth = 371
   OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
@@ -367,7 +367,7 @@ object AboutForm: TAboutForm
     Left = 3
     Height = 17
     Top = 188
-    Width = 361
+    Width = 366
     Anchors = [akLeft, akRight]
     BorderSpacing.Right = 2
     Shape = bsTopLine
@@ -375,7 +375,7 @@ object AboutForm: TAboutForm
   object Button1: TButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 145
+    Left = 148
     Height = 32
     Top = 200
     Width = 77

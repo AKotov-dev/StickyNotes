@@ -1,14 +1,14 @@
 object NoteForm: TNoteForm
   Left = 304
-  Height = 290
+  Height = 291
   Top = 124
-  Width = 429
+  Width = 423
   AlphaBlend = True
   AlphaBlendValue = 245
   BorderStyle = bsNone
   Caption = 'NoteForm'
-  ClientHeight = 290
-  ClientWidth = 429
+  ClientHeight = 291
+  ClientWidth = 423
   Color = clYellow
   OnClose = FormClose
   OnMouseDown = FormMouseDown
@@ -19,7 +19,7 @@ object NoteForm: TNoteForm
   ShowInTaskBar = stNever
   LCLVersion = '2.0.12.0'
   object SpeedButton2: TSpeedButton
-    Left = 360
+    Left = 354
     Height = 32
     Top = 0
     Width = 32
@@ -32,7 +32,7 @@ object NoteForm: TNoteForm
     ShowCaption = False
   end
   object CloseBtn: TSpeedButton
-    Left = 396
+    Left = 390
     Height = 32
     Top = 0
     Width = 32
@@ -49,10 +49,10 @@ object NoteForm: TNoteForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 4
-    Height = 214
+    Height = 215
     Hint = 'Font size: Ctrl +/-'
     Top = 40
-    Width = 421
+    Width = 415
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
@@ -73,9 +73,9 @@ object NoteForm: TNoteForm
   end
   object Shape1: TShape
     Cursor = crSizeNW
-    Left = 396
+    Left = 390
     Height = 32
-    Top = 258
+    Top = 259
     Width = 33
     Anchors = [akRight, akBottom]
     Brush.Color = clYellow
@@ -85,7 +85,7 @@ object NoteForm: TNoteForm
     OnMouseUp = Shape1MouseUp
   end
   object SpeedButton5: TSpeedButton
-    Left = 324
+    Left = 318
     Height = 32
     Top = 0
     Width = 32
