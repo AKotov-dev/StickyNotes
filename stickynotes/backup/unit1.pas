@@ -104,7 +104,8 @@ begin
           NoteForm.Name := SR.Name;
           //+Прозрачность от MainForm
           NoteForm.AlphaBlend := MainForm.AlphaBlend;
-          NoteForm.Font:=MainForm.Font;
+          NoteForm.Font := MainForm.Font;
+          NoteForm.Font.Color := clBlack;
           NoteForm.Show;
         end;
       until FindNext(SR) <> 0
@@ -218,7 +219,8 @@ begin
     NoteForm := TNoteForm.Create(Self);
     //+Прозрачность
     NoteForm.AlphaBlend := MainForm.AlphaBlend;
-    NoteForm.Font:=MainForm.Font;
+    NoteForm.Font := MainForm.Font;
+    NoteForm.Font.Color := clBlack;
     NoteForm.Show;
     Exit;
   end;
@@ -232,7 +234,8 @@ begin
       NoteForm.Name := 'NoteForm_' + IntToStr(i);
       //+Прозрачность
       NoteForm.AlphaBlend := MainForm.AlphaBlend;
-      NoteForm.Font:=MainForm.Font;
+      NoteForm.Font := MainForm.Font;
+      NoteForm.Font.Color := clBlack;
       NoteForm.Show;
       Exit;
     end;
@@ -260,18 +263,24 @@ begin
 end;
 
 procedure TMainForm.FontItemClick(Sender: TObject);
-var i: Integer;
+var
+  i: integer;
 begin
+  FontDialog1.Font := MainForm.Font;
+
   if FontDialog1.Execute then
   begin
-    MainForm.Font:=FontDialog1.Font;
+    MainForm.Font := FontDialog1.Font;
 
-  for i:=0 to Screen.FormCount - 1 do
-  if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-    Screen.Forms[i].Font:=MainForm.Font;
+    for i := 0 to Screen.FormCount - 1 do
+      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+      begin
+        Screen.Forms[i].Font := MainForm.Font;
+        Screen.Forms[i].Font.Color := clBlack;
+      end;
 
-  IniPropStorage1.Save;
-end;
+    IniPropStorage1.Save;
+  end;
 end;
 
 procedure TMainForm.AboutItemClick(Sender: TObject);

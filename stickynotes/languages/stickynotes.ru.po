@@ -79,7 +79,7 @@ msgstr "Экспорт"
 
 #: tmainform.fontitem.caption
 msgid "Font"
-msgstr ""
+msgstr "Шрифт"
 
 #: tmainform.importitem.caption
 msgid "Import"
@@ -121,4 +121,3 @@ msgstr "Импорт заметок завершен..."
 #: unit1.simporttitle
 msgid "Import notes"
 msgstr "Импорт заметок"
-

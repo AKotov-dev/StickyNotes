@@ -1,11 +1,12 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 313
   Height = 138
   Top = 124
   Width = 353
   BorderIcons = []
   Caption = 'MainForm'
   DoubleBuffered = True
+  Font.Color = clBlack
   OnCreate = FormCreate
   ParentDoubleBuffered = False
   Position = poDesktopCenter

@@ -105,6 +105,7 @@ begin
           //+Прозрачность от MainForm
           NoteForm.AlphaBlend := MainForm.AlphaBlend;
           NoteForm.Font := MainForm.Font;
+          NoteForm.Font.Color := clBlack;
           NoteForm.Show;
         end;
       until FindNext(SR) <> 0
@@ -219,6 +220,7 @@ begin
     //+Прозрачность
     NoteForm.AlphaBlend := MainForm.AlphaBlend;
     NoteForm.Font := MainForm.Font;
+    NoteForm.Font.Color := clBlack;
     NoteForm.Show;
     Exit;
   end;
@@ -233,6 +235,7 @@ begin
       //+Прозрачность
       NoteForm.AlphaBlend := MainForm.AlphaBlend;
       NoteForm.Font := MainForm.Font;
+      NoteForm.Font.Color := clBlack;
       NoteForm.Show;
       Exit;
     end;
@@ -271,7 +274,10 @@ begin
 
     for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+      begin
         Screen.Forms[i].Font := MainForm.Font;
+        Screen.Forms[i].Font.Color := clBlack;
+      end;
 
     IniPropStorage1.Save;
   end;
