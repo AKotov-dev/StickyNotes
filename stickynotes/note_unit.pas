@@ -102,7 +102,7 @@ end;
 //Размер шрифта Ctrl+"+"/Ctrl+"-"
 procedure TNoteForm.Memo1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  if ssCtrl in Shift then
+  {if ssCtrl in Shift then
   begin
     if Key = VK_ADD then
       if Memo1.Font.Size < 20 then
@@ -111,7 +111,7 @@ begin
     if Key = VK_SUBTRACT then
       if Memo1.Font.Size > 8 then
         Memo1.Font.Size := Memo1.Font.Size - 1;
-  end;
+  end;}
 end;
 
 procedure TNoteForm.Memo1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
