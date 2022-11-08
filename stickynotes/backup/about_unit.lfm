@@ -1,15 +1,15 @@
 object AboutForm: TAboutForm
-  Left = 424
-  Height = 241
-  Top = 179
-  Width = 366
+  Left = 352
+  Height = 232
+  Top = 134
+  Width = 427
   Caption = 'About'
-  ClientHeight = 241
-  ClientWidth = 366
+  ClientHeight = 232
+  ClientWidth = 427
   OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   object Image1: TImage
     Left = 8
     Height = 128
@@ -341,46 +341,53 @@ object AboutForm: TAboutForm
     }
   end
   object Label1: TLabel
-    Left = 160
-    Height = 21
+    Left = 156
+    Height = 23
     Top = 8
     Width = 180
     Caption = 'StickyNotes v0.2'
     Font.Height = -19
     Font.Name = 'Sans'
     Font.Style = [fsBold]
-    ParentColor = False
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 160
-    Height = 120
+    Left = 156
+    Height = 119
     Top = 48
-    Width = 175
-    Caption = 'Colorful Sticky Notes'#10#10'License: GPLv3'#10'Compilation: Lazarus 2.0.12'#10'Author: alex_q_2000 (C) 2021'#10#10'Russian Linux Forum:'#10'https://linuxforum.ru'
-    ParentColor = False
+    Width = 253
+    Caption = 'Colorful Sticky Notes'#10'  '#10'License: GPLv3'#10'Compilation: Lazarus 2.2.0'#10'Author: alex_q_2000 (C) 2021'#10'  '#10'Russian Linux Forum: https://linuxforum.ru'
     ParentFont = False
   end
   object Bevel1: TBevel
+    AnchorSideTop.Control = Label3
+    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 3
-    Height = 17
-    Top = 188
-    Width = 361
-    Anchors = [akLeft, akRight]
+    Height = 9
+    Top = 182
+    Width = 422
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 15
     BorderSpacing.Right = 2
     Shape = bsTopLine
   end
   object Button1: TButton
+    AnchorSideLeft.Control = Bevel1
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Bevel1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 145
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 176
     Height = 32
-    Top = 200
+    Top = 190
     Width = 77
-    Anchors = [akBottom]
+    BorderSpacing.Top = 8
     BorderSpacing.Right = 172
+    BorderSpacing.Bottom = 8
     Caption = 'Ok'
     OnClick = Button1Click
     ParentFont = False

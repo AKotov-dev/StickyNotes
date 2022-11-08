@@ -48,7 +48,10 @@ end;
 procedure TAboutForm.FormShow(Sender: TObject);
 begin
   Label1.Caption := Application.Title;
+
+  //Scaling in Plasma
+  AboutForm.Width := Label3.Left + Label3.Width + 10;
+  AboutForm.Height := Button1.Top + Button1.Height + 10;
 end;
 
 end.
-

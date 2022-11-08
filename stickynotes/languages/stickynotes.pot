@@ -1,23 +1,13 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: ru\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2\n"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: note_unit.sdeletenote
 msgid "Delete this note?"
-msgstr "Удалить эту заметку?"
+msgstr ""
 
 #: note_unit.snotenumber
 msgid "Note"
-msgstr "Заметка"
+msgstr ""
 
 #: taboutform.button1.caption
 msgid "Ok"
@@ -26,36 +16,31 @@ msgstr ""
 #: taboutform.caption
 msgctxt "taboutform.caption"
 msgid "About"
-msgstr "О программе"
+msgstr ""
 
 #: taboutform.label1.caption
 msgid "StickyNotes v0.2"
 msgstr ""
 
 #: taboutform.label3.caption
-msgid "Colorful Sticky Notes\n"
+msgid ""
+"Colorful Sticky Notes\n"
 "  \n"
 "License: GPLv3\n"
 "Compilation: Lazarus 2.2.0\n"
 "Author: alex_q_2000 (C) 2021\n"
 "  \n"
 "Russian Linux Forum: https://linuxforum.ru"
-msgstr "Красочные липкие заметки\n"
-"  \n"
-"Лицензия: GPLv3\n"
-"Компиляция: Lazarus 2.2.0\n"
-"Автор: alex_q_2000 (C) 2021\n"
-"  \n"
-"Russian Linux Forum: https://linuxforum.ru"
+msgstr ""
 
 #: tmainform.aboutitem.caption
 msgctxt "tmainform.aboutitem.caption"
 msgid "About"
-msgstr "О программе"
+msgstr ""
 
 #: tmainform.autostartitem.caption
 msgid "Autostart"
-msgstr "Автостарт"
+msgstr ""
 
 #: tmainform.caption
 msgid "MainForm"
@@ -63,36 +48,35 @@ msgstr ""
 
 #: tmainform.closeallitem.caption
 msgid "Close all"
-msgstr "Закрыть все"
+msgstr ""
 
 #: tmainform.exititem.caption
 msgid "Exit"
-msgstr "Выход"
+msgstr ""
 
 #: tmainform.exportitem.caption
 msgid "Export"
-msgstr "Экспорт"
+msgstr ""
 
 #: tmainform.fontitem.caption
 msgid "Font"
-msgstr "Шрифт"
+msgstr ""
 
 #: tmainform.importitem.caption
 msgid "Import"
-msgstr "Импорт"
+msgstr ""
 
 #: tmainform.newnoteitem.caption
 msgid "New Note"
-msgstr "Новая заметка"
+msgstr ""
 
 #: tmainform.showallitem.caption
 msgid "Show all"
-msgstr "Показать все"
+msgstr ""
 
 #: tmainform.transparencyitem.caption
-msgctxt "tmainform.transparencyitem.caption"
 msgid "Transparency"
-msgstr "Прозрачность"
+msgstr ""
 
 #: tnoteform.caption
 msgid "NoteForm"
@@ -100,17 +84,17 @@ msgstr ""
 
 #: unit1.sexportmessage
 msgid "Exporting notes completed..."
-msgstr "Экспорт заметок завершен..."
+msgstr ""
 
 #: unit1.sexporttitle
 msgid "Export notes"
-msgstr "Экспорт заметок"
+msgstr ""
 
 #: unit1.simportmessage
 msgid "Importing notes completed..."
-msgstr "Импорт заметок завершен..."
+msgstr ""
 
 #: unit1.simporttitle
 msgid "Import notes"
-msgstr "Импорт заметок"
+msgstr ""
 

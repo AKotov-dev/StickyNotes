@@ -2,10 +2,10 @@
 name=stickynotes
 
 [VERSION]
-version=0.5
+version=0.6
 
 [RELEASE]
-release=0.mrx8
+release=0.mrx9
 
 [GROUP]
 group=Applications/Text
@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/StickyNotes
 license=GPLv3
 
 [DEPS]
-deps=
+deps=gtk2
 
 [META]
 meta=0
@@ -56,34 +56,40 @@ deb=1
 url32=https://github.com/AKotov-dev/StickyNotes
 
 [URL64]
-url64=https://github.com/AKotov-dev/StickyNotes
+url64=
 
 [PROGRAMNAME]
-programname=Sticky Notes
+programname=StickyNotes
 
 [DEVTOOL]
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=2.0.12
+toolversion=2.2.0
 
 [INFO]
 0=Simple, colorful sticky notes to use at work every day
 1=
-2=v0.5
-3=+ global font selection from the menu (tray)
-4=+ global note transparency setting
-5=+ default note font - Liberation Sans-11
-6=
-7=v0.4
-8=+ display of notes at startup/autostart
-9=+ closing notes before importing/exporting
-10=+ vertical autoscroll
-11=+ transparency enable/disable
+2=v0.6
+3=Added rpm-dependencies: gtk2
+4=Recompilation in Lazarus 2.2.0
+5=Launch changed: LAZUSEAPPIND=NO (/usr/bin/stickynotes)
+6=Release for Mageia-9 and higher
+7=
+8=v0.5
+9=+ global font selection from the menu (tray)
+10=+ global note transparency setting
+11=+ default note font - Liberation Sans-11
 12=
-13=v0.3
-14=+ font size changes Ctrl +/-
-15=+ black font for all DE color schemes
-16=+ preset colors that speed up your selection
-17=
-18=v0.2 - initial version
+13=v0.4
+14=+ display of notes at startup/autostart
+15=+ closing notes before importing/exporting
+16=+ vertical autoscroll
+17=+ transparency enable/disable
+18=
+19=v0.3
+20=+ font size changes Ctrl +/-
+21=+ black font for all DE color schemes
+22=+ preset colors that speed up your selection
+23=
+24=v0.2 - initial version
