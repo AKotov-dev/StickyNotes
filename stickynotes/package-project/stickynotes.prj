@@ -71,10 +71,10 @@ toolversion=2.2.0
 0=Simple, colorful sticky notes to use at work every day
 1=
 2=v0.6
-3=Added rpm-dependencies: gtk2
-4=Recompilation in Lazarus 2.2.0
-5=Launch changed: LAZUSEAPPIND=NO (/usr/bin/stickynotes)
-6=Release for Mageia-9 and higher
+3=+ Added rpm-dependencies: gtk2
+4=+ Recompilation in Lazarus 2.2.0
+5=+ Launch changed: LAZUSEAPPIND=NO (/usr/bin/stickynotes)
+6=+ Release for Mageia-9 and higher
 7=
 8=v0.5
 9=+ global font selection from the menu (tray)
