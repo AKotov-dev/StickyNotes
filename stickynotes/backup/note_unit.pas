@@ -67,9 +67,9 @@ implementation
 
 uses unit1;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TNoteForm }
+  { TNoteForm }
 
 //Чистое удаление экземпляра
 destructor TNoteForm.Destroy;
@@ -115,7 +115,6 @@ begin
 end;
 
 procedure TNoteForm.Memo1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
-
 begin
   IniPropStorage1.Save;
 end;

@@ -1,15 +1,15 @@
 object AboutForm: TAboutForm
   Left = 352
   Height = 232
-  Top = 134
-  Width = 427
+  Top = 138
+  Width = 440
   Caption = 'About'
   ClientHeight = 232
-  ClientWidth = 427
+  ClientWidth = 440
+  Position = poDesktopCenter
+  LCLVersion = '4.6.0.0'
   OnClose = FormClose
   OnShow = FormShow
-  Position = poDesktopCenter
-  LCLVersion = '2.2.0.4'
   object Image1: TImage
     Left = 8
     Height = 128
@@ -355,8 +355,8 @@ object AboutForm: TAboutForm
     Left = 156
     Height = 119
     Top = 48
-    Width = 253
-    Caption = 'Colorful Sticky Notes'#10'  '#10'License: GPLv3'#10'Compilation: Lazarus 2.2.0'#10'Author: alex_q_2000 (C) 2021'#10'  '#10'Russian Linux Forum: https://linuxforum.ru'
+    Width = 263
+    Caption = 'Colorful Sticky Notes'#10'  '#10'License: GPLv3'#10'Compilation: Lazarus 4.6'#10'Author: alex_q_2000 (C) 2026'#10'  '#10'https://github.com/AKotov-dev/StickyNotes'
     ParentFont = False
   end
   object Bevel1: TBevel
@@ -367,7 +367,7 @@ object AboutForm: TAboutForm
     Left = 3
     Height = 9
     Top = 182
-    Width = 422
+    Width = 435
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 15
     BorderSpacing.Right = 2
@@ -381,7 +381,7 @@ object AboutForm: TAboutForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 176
+    Left = 182
     Height = 32
     Top = 190
     Width = 77
@@ -389,8 +389,8 @@ object AboutForm: TAboutForm
     BorderSpacing.Right = 172
     BorderSpacing.Bottom = 8
     Caption = 'Ok'
-    OnClick = Button1Click
     ParentFont = False
     TabOrder = 0
+    OnClick = Button1Click
   end
 end

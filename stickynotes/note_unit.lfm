@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 305
+  Left = 327
   Height = 286
-  Top = 125
+  Top = 126
   Width = 418
   AlphaBlendValue = 240
   BorderStyle = bsNone
@@ -9,14 +9,14 @@ object NoteForm: TNoteForm
   ClientHeight = 286
   ClientWidth = 418
   Color = clYellow
+  SessionProperties = 'Color;Height;Left;Memo1.Lines;Shape1.Brush;Top;Width'
+  ShowInTaskBar = stNever
+  LCLVersion = '4.6.0.0'
   OnClose = FormClose
   OnMouseDown = FormMouseDown
   OnMouseMove = FormMouseMove
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  SessionProperties = 'Color;Height;Left;Memo1.Lines;Shape1.Brush;Top;Width'
-  ShowInTaskBar = stNever
-  LCLVersion = '2.2.0.4'
   object SpeedButton2: TSpeedButton
     Left = 349
     Height = 32
@@ -27,8 +27,8 @@ object NoteForm: TNoteForm
     Flat = True
     Images = ImageList1
     ImageIndex = 0
-    OnClick = SpeedButton2Click
     ShowCaption = False
+    OnClick = SpeedButton2Click
   end
   object CloseBtn: TSpeedButton
     Left = 385
@@ -40,8 +40,8 @@ object NoteForm: TNoteForm
     Flat = True
     Images = ImageList1
     ImageIndex = 1
-    OnClick = CloseBtnClick
     ShowCaption = False
+    OnClick = CloseBtnClick
   end
   object Memo1: TMemo
     AnchorSideLeft.Control = Owner
@@ -55,14 +55,14 @@ object NoteForm: TNoteForm
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
     BorderStyle = bsNone
-    OnKeyDown = Memo1KeyDown
-    OnKeyUp = Memo1KeyUp
-    OnMouseLeave = Memo1MouseLeave
     ParentColor = True
     ParentShowHint = False
     ScrollBars = ssAutoVertical
     TabOrder = 0
     WantTabs = True
+    OnKeyDown = Memo1KeyDown
+    OnKeyUp = Memo1KeyUp
+    OnMouseLeave = Memo1MouseLeave
   end
   object Shape1: TShape
     Cursor = crSizeNW
@@ -87,8 +87,8 @@ object NoteForm: TNoteForm
     Flat = True
     Images = ImageList1
     ImageIndex = 3
-    OnClick = SpeedButton5Click
     ShowCaption = False
+    OnClick = SpeedButton5Click
   end
   object Shape2: TShape
     AnchorSideLeft.Control = Shape3
@@ -100,8 +100,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 4319231
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape3: TShape
     Cursor = crHandPoint
@@ -111,8 +111,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = clYellow
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape4: TShape
     AnchorSideLeft.Control = Shape9
@@ -124,8 +124,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 13483519
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape5: TShape
     AnchorSideLeft.Control = Shape2
@@ -137,8 +137,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 11009959
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape6: TShape
     AnchorSideLeft.Control = Shape8
@@ -150,8 +150,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 16636377
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape8: TShape
     AnchorSideLeft.Control = Shape5
@@ -163,8 +163,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 4979560
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object Shape9: TShape
     AnchorSideLeft.Control = Shape6
@@ -176,8 +176,8 @@ object NoteForm: TNoteForm
     Width = 20
     Brush.Color = 15659962
     Pen.Color = clGray
-    OnMouseDown = Shape3MouseDown
     Shape = stCircle
+    OnMouseDown = Shape3MouseDown
   end
   object ImageList1: TImageList
     Left = 128

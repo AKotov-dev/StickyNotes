@@ -2,10 +2,10 @@
 name=stickynotes
 
 [VERSION]
-version=0.6
+version=0.7
 
 [RELEASE]
-release=0.mrx9
+release=0.mrx10
 
 [GROUP]
 group=Applications/Text
@@ -19,7 +19,7 @@ group=Applications/Text
 maintainer=Alex Kotov
 
 [VENDOR]
-vendor=alex_q_2000 (C) 2021
+vendor=alex_q_2000 (C) 2026
 
 [SUMMARY]
 summary=Colorful Sticky Notes
@@ -39,9 +39,6 @@ meta=0
 [NOARCH]
 noarch=0
 
-[SIGN]
-sign=0
-
 [DEB]
 deb=1
 
@@ -54,9 +51,6 @@ deb=1
 
 [URL32]
 url32=https://github.com/AKotov-dev/StickyNotes
-
-[URL64]
-url64=
 
 [PROGRAMNAME]
 programname=StickyNotes

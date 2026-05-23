@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, Buttons, Menus, IniPropStorage, FileUtil, Process;
 
 type
@@ -16,6 +16,7 @@ type
     ExitItem: TMenuItem;
     AboutItem: TMenuItem;
     FontDialog1: TFontDialog;
+    Image1: TImage;
     IniPropStorage1: TIniPropStorage;
     FontItem: TMenuItem;
     TransparencyItem: TMenuItem;
@@ -69,9 +70,9 @@ implementation
 
 uses note_unit, about_unit;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TMainForm }
+  { TMainForm }
 
 //Количество сохраненных заметок
 function GetFilesCount: integer;
@@ -80,14 +81,14 @@ var
 begin
   Result := 0;
   if FindFirst(GetUserDir + '.config/stickynotes/NoteForm*', faAnyFile, SR) = 0 then
-    try
-      repeat
-        if SR.Attr and faDirectory = 0 then
-          Inc(Result)
-      until FindNext(SR) <> 0
-    finally
-      FindClose(SR);
-    end;
+  try
+    repeat
+      if SR.Attr and faDirectory = 0 then
+        Inc(Result)
+    until FindNext(SR) <> 0
+  finally
+    FindClose(SR);
+  end;
 end;
 
 //Показать все заметки по конфигам
@@ -96,22 +97,22 @@ var
   SR: TSearchRec;
 begin
   if FindFirst(GetUserDir + '.config/stickynotes/NoteForm*', faAnyFile, SR) = 0 then
-    try
-      repeat
-        if SR.Attr and faDirectory = 0 then
-        begin
-          NoteForm := TNoteForm.Create(Self);
-          NoteForm.Name := SR.Name;
-          //+Прозрачность от MainForm
-          NoteForm.AlphaBlend := MainForm.AlphaBlend;
-          NoteForm.Font := MainForm.Font;
-          NoteForm.Font.Color := clBlack;
-          NoteForm.Show;
-        end;
-      until FindNext(SR) <> 0
-    finally
-      FindClose(SR);
-    end;
+  try
+    repeat
+      if SR.Attr and faDirectory = 0 then
+      begin
+        NoteForm := TNoteForm.Create(Self);
+        NoteForm.Name := SR.Name;
+        //+Прозрачность от MainForm
+        NoteForm.AlphaBlend := MainForm.AlphaBlend;
+        NoteForm.Font := MainForm.Font;
+        NoteForm.Font.Color := clBlack;
+        NoteForm.Show;
+      end;
+    until FindNext(SR) <> 0
+  finally
+    FindClose(SR);
+  end;
 end;
 
 //Переключение прозрачности всех видимых заметок
@@ -188,7 +189,20 @@ begin
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
+var
+  bmp: TBitmap;
 begin
+  // Устраняем баг иконки приложения
+  bmp := TBitmap.Create;
+  try
+    bmp.PixelFormat := pf32bit;
+    bmp.Assign(Image1.Picture.Graphic);
+    Application.Icon.Assign(bmp);
+  finally
+    bmp.Free;
+  end;
+
+
   TrayIcon1.Hint := Application.Title;
   TrayIcon1.Icon := Application.Icon;
 

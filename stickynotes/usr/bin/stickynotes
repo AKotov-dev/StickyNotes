@@ -1,0 +1,13 @@
+#!/bin/bash
+
+APP="/usr/share/stickynotes/stickynotes"
+
+case "${XDG_CURRENT_DESKTOP}" in
+  *Budgie*|*GNOME*)
+    exec "$APP"
+    ;;
+  *)
+    exec env LAZUSEAPPIND=NO "$APP"
+    ;;
+esac
+
