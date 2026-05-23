@@ -363,7 +363,7 @@ object MainForm: TMainForm
       0000
     }
     Visible = True
-    OnDblClick = TrayIcon1DblClick
+    OnClick = TrayIcon1Click
     Left = 32
     Top = 16
   end

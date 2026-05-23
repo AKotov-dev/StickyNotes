@@ -38,7 +38,6 @@
       <Unit0>
         <Filename Value="stickynotes.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="23"/>
         <UsageCount Value="58"/>
@@ -51,8 +50,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="136"/>
-        <CursorPos X="3" Y="141"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="129"/>
+        <CursorPos Y="152"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -90,7 +90,7 @@
         <UsageCount Value="20"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="note_unit.pas"/>
         <Caret Column="16"/>
@@ -111,6 +111,30 @@
         <Filename Value="unit1.pas"/>
         <Caret Column="14"/>
       </Position5>
+      <Position6>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="141" Column="3" TopLine="136"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="343" TopLine="283"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="219" Column="75" TopLine="200"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="161" TopLine="159"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="223" Column="46" TopLine="200"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="147" TopLine="142"/>
+      </Position11>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

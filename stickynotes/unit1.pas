@@ -49,8 +49,7 @@ type
     procedure CloseAllItemClick(Sender: TObject);
     procedure ShowAllNotes;
     procedure TransparencyItemClick(Sender: TObject);
-    procedure TrayIcon1DblClick(Sender: TObject);
-
+    procedure TrayIcon1Click(Sender: TObject);
   private
 
   public
@@ -134,11 +133,11 @@ begin
 end;
 
 //Показать/Скрыть все
-procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
+procedure TMainForm.TrayIcon1Click(Sender: TObject);
 var
   i: integer;
 begin
-  for i := 0 to Screen.FormCount - 1 do
+    for i := 0 to Screen.FormCount - 1 do
     if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
     begin
       CloseAllItem.Click;
@@ -216,7 +215,11 @@ begin
   //Вытаскиваем Default-настройки
   IniPropStorage1.Restore;
 
-  //+Прозрачность
+  //Контроль автостарта
+  if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
+    AutoStartItem.Checked := True;
+
+  //Контроль прозрачности
   TransparencyItem.Checked := MainForm.AlphaBlend;
 
   //Сразу показываем заметки
@@ -336,7 +339,7 @@ begin
     if not DirectoryExists(GetUserDir + '.config/autostart') then
       MkDir(GetUserDir + '.config/autostart');
 
-    CopyFile('/usr/share/stickynotes/stickynotes.desktop', GetUserDir +
+    CopyFile('/usr/share/applications/stickynotes.desktop', GetUserDir +
       '.config/autostart/stickynotes.desktop', False);
   end;
 

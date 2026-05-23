@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 324
   Height = 138
-  Top = 124
+  Top = 123
   Width = 353
   BorderIcons = []
   Caption = 'MainForm'
@@ -363,7 +363,7 @@ object MainForm: TMainForm
       0000
     }
     Visible = True
-    OnDblClick = TrayIcon1DblClick
+    OnClick = TrayIcon1Click
     Left = 32
     Top = 16
   end

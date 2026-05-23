@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 339
+  Left = 327
   Height = 286
-  Top = 131
+  Top = 126
   Width = 418
   AlphaBlendValue = 240
   BorderStyle = bsNone
