@@ -1,7 +1,7 @@
 object NoteForm: TNoteForm
-  Left = 377
+  Left = 407
   Height = 286
-  Top = 233
+  Top = 145
   Width = 418
   ActiveControl = Memo1
   AlphaBlendValue = 240
@@ -15,9 +15,6 @@ object NoteForm: TNoteForm
   LCLVersion = '4.6.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
-  OnMouseDown = FormMouseDown
-  OnMouseMove = FormMouseMove
-  OnMouseUp = FormMouseUp
   OnShow = FormShow
   object ShapeBack: TShape
     Left = 0
@@ -27,9 +24,9 @@ object NoteForm: TNoteForm
     Align = alClient
     Brush.Color = clYellow
     Pen.Color = clNone
-    OnMouseDown = FormMouseDown
-    OnMouseMove = FormMouseMove
-    OnMouseUp = FormMouseUp
+    OnMouseDown = ShapeBackMouseDown
+    OnMouseMove = ShapeBackMouseMove
+    OnMouseUp = ShapeBackMouseUp
   end
   object SpeedButton2: TSpeedButton
     Left = 349

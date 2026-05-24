@@ -210,7 +210,7 @@ end;
 procedure TNoteForm.Shape3MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: integer);
 begin
-  // Красим фон текущего окна, на котором кликнули
+  // Красим фон ShapeBack, на котором кликнули
   ShapeBack.Brush.Color := (Sender as TShape).Brush.Color;
   Shape1.Brush.Color := (Sender as TShape).Brush.Color;
   Memo1.Color := (Sender as TShape).Brush.Color;
@@ -247,7 +247,6 @@ begin
   // Настраиваем Memo ТЕКУЩЕЙ формы
   Memo1.ParentFont := False;
   Memo1.Font.Color := clBlack;
-  // Теперь одна строка сработает как в тестах!
 end;
 
 procedure TNoteForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);

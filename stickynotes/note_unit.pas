@@ -30,11 +30,6 @@ type
     SpeedButton5: TSpeedButton;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: integer);
-    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
-    procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: integer);
     procedure FormShow(Sender: TObject);
     procedure Memo1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure Memo1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -44,6 +39,12 @@ type
     procedure Shape1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure Shape3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: integer);
+    procedure ShapeBackMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: integer);
+    procedure ShapeBackMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: integer);
+    procedure ShapeBackMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure SNPaint;
     procedure SpeedButton2Click(Sender: TObject);
@@ -229,12 +230,29 @@ begin
   IniPropStorage1.Save;
 end;
 
-procedure TNoteForm.FormMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TNoteForm.ShapeBackMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: integer);
 begin
   FPosX := X;
   FPosY := Y;
   MPress := True;
+end;
+
+procedure TNoteForm.ShapeBackMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: integer);
+begin
+  if MPress then
+  begin
+    Left := Left - FPosX + X;
+    Top := Top - FPosY + Y;
+  end;
+end;
+
+procedure TNoteForm.ShapeBackMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: integer);
+begin
+  MPress := False;
+  IniPropStorage1.Save;
 end;
 
 procedure TNoteForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -247,22 +265,6 @@ begin
   // Настраиваем Memo ТЕКУЩЕЙ формы
   Memo1.ParentFont := False;
   Memo1.Font.Color := clBlack;
-end;
-
-procedure TNoteForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
-begin
-  if MPress then
-  begin
-    Left := Left - FPosX + X;
-    Top := Top - FPosY + Y;
-  end;
-end;
-
-procedure TNoteForm.FormMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: integer);
-begin
-  MPress := False;
-  IniPropStorage1.Save;
 end;
 
 end.
