@@ -15,8 +15,8 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'StickyNotes v0.7';
-  Application.Scaled := True;
+  Application.Title:='StickyNotes v0.7';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.ShowMainForm := False;
   Application.CreateForm(TMainForm, MainForm);

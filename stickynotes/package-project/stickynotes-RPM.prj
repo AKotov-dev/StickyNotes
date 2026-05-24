@@ -1,0 +1,92 @@
+[NAME]
+name=stickynotes
+
+[VERSION]
+version=0.7
+
+[RELEASE]
+release=0.mrx10
+
+[GROUP]
+group=Applications/Text
+
+[DESCRIPTION]
+0=Simple, colorful sticky notes to use at work every day
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2026
+
+[SUMMARY]
+summary=Colorful Sticky Notes
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/StickyNotes
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=qtbase6-common qt6pas
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[DEB]
+deb=0
+
+[FILES]
+0=/usr/share/icons/stickynotes.png
+1=/usr/share/applications/stickynotes.desktop
+2=/usr/share/stickynotes/
+3=/usr/share/doc/stickynotes/
+
+[URL32]
+url32=https://github.com/AKotov-dev/StickyNotes
+
+[PROGRAMNAME]
+programname=StickyNotes
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=4.6
+
+[INFO]
+0=Simple, colorful sticky notes to use at work every day
+1=
+2=v0.7
+3=+ Build in Lazarus-4.6 (Qt6 widgets)
+4=+ Packages for Mageia and Ubuntu
+5=
+6=v0.6
+7=+ Added rpm-dependencies: gtk2
+8=+ Recompilation in Lazarus 2.2.0
+9=+ Launch changed: LAZUSEAPPIND=NO (/usr/bin/stickynotes)
+10=+ Release for Mageia-9 and higher
+11=
+12=v0.5
+13=+ global font selection from the menu (tray)
+14=+ global note transparency setting
+15=+ default note font - Liberation Sans-11
+16=
+17=v0.4
+18=+ display of notes at startup/autostart
+19=+ closing notes before importing/exporting
+20=+ vertical autoscroll
+21=+ transparency enable/disable
+22=
+23=v0.3
+24=+ font size changes Ctrl +/-
+25=+ black font for all DE color schemes
+26=+ preset colors that speed up your selection
+27=
+28=v0.2 - initial version

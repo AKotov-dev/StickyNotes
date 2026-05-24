@@ -22,12 +22,14 @@ type
     Shape4: TShape;
     Shape5: TShape;
     Shape6: TShape;
+    ShapeBack: TShape;
     Shape8: TShape;
     Shape9: TShape;
     SpeedButton2: TSpeedButton;
     CloseBtn: TSpeedButton;
     SpeedButton5: TSpeedButton;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
@@ -52,7 +54,6 @@ type
     MPress: boolean;
 
   public
-    destructor Destroy; override;
 
   end;
 
@@ -71,33 +72,32 @@ uses unit1;
 
   { TNoteForm }
 
-//Чистое удаление экземпляра
-destructor TNoteForm.Destroy;
-begin
-  inherited;
-  Self := nil; // <---
-end;
-
 procedure TNoteForm.FormShow(Sender: TObject);
 begin
-  //Ищем файл содержимого записки Self и применяем к форме + создание, если отсутствует
-  IniPropStorage1.IniFileName :=
-    GetUserDir + '.config/stickynotes/' + Self.Name;
+  // Ищем файл содержимого записки Self и применяем к форме
+  IniPropStorage1.IniFileName := GetUserDir + '.config/stickynotes/' + Self.Name;
   IniPropStorage1.Restore;
-  //Штамп времени
+
+  // ХАК ДЛЯ QT6 ПОСЛЕ ЗАГРУЗКИ ИЗ INI:
+  // Блокируем сброс цвета, который мог прилететь из старого конфига или темы
+  Memo1.ParentFont := False;
+  Memo1.Font.Color := clBlack;
+
+  // Штамп времени (если файл создается впервые)
   if not FileExists(GetUserDir + '.config/stickynotes/' + Self.Name) then
     Memo1.Lines.Add(StringReplace(Self.Name, 'NoteForm', SNoteNumber,
       [rfReplaceAll, rfIgnoreCase]) + ': ' + FormatDateTime(
-      'dd mmmm yyyy - hh:nn:ss', Now));
+      'dd mmmm yyyy - hh:nn:ss', Now) + #13#10);
 
   IniPropStorage1.Save;
 
-  //Каретка в конец
+  // Каретка в конец
   Memo1.SelStart := Length(Memo1.Text);
 
-  //Отрисовка загнутого угла
+  // Отрисовка загнутого угла
   SNPaint;
 end;
+
 
 //Размер шрифта Ctrl+"+"/Ctrl+"-"
 procedure TNoteForm.Memo1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -210,8 +210,22 @@ end;
 procedure TNoteForm.Shape3MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: integer);
 begin
-  Color := (Sender as TShape).Brush.Color;
+  // Красим фон ShapeBack, на котором кликнули
+  ShapeBack.Brush.Color := (Sender as TShape).Brush.Color;
   Shape1.Brush.Color := (Sender as TShape).Brush.Color;
+  Memo1.Color := (Sender as TShape).Brush.Color;
+
+  // Настраиваем шрифт ТЕКУЩЕЙ формы (без приставки NoteForm.)
+  Font.Assign(MainForm.Font);
+  Font.Color := clBlack;
+
+  // Настраиваем Memo ТЕКУЩЕЙ формы
+  Memo1.ParentFont := False;
+  Memo1.Font.Color := clBlack;
+  // Теперь одна строка сработает как в тестах!
+
+  Memo1.Invalidate;
+
   IniPropStorage1.Save;
 end;
 
@@ -226,6 +240,13 @@ end;
 procedure TNoteForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   Closeaction := caFree;
+end;
+
+procedure TNoteForm.FormCreate(Sender: TObject);
+begin
+  // Настраиваем Memo ТЕКУЩЕЙ формы
+  Memo1.ParentFont := False;
+  Memo1.Font.Color := clBlack;
 end;
 
 procedure TNoteForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);

@@ -17,6 +17,7 @@ type
     AboutItem: TMenuItem;
     FontDialog1: TFontDialog;
     Image1: TImage;
+    Image2: TImage;
     IniPropStorage1: TIniPropStorage;
     FontItem: TMenuItem;
     TransparencyItem: TMenuItem;
@@ -44,7 +45,6 @@ type
     procedure AutoStartItemClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ExitItemClick(Sender: TObject);
-    procedure PopupMenu1Popup(Sender: TObject);
     procedure ShowAllItemClick(Sender: TObject);
     procedure CloseAllItemClick(Sender: TObject);
     procedure ShowAllNotes;
@@ -90,23 +90,32 @@ begin
   end;
 end;
 
-//Показать все заметки по конфигам
+// Показать все заметки по конфигам
 procedure TMainForm.ShowAllNotes;
 var
   SR: TSearchRec;
+  ANote: TNoteForm;
+  // Локальная переменная вместо глобальной
 begin
   if FindFirst(GetUserDir + '.config/stickynotes/NoteForm*', faAnyFile, SR) = 0 then
   try
     repeat
       if SR.Attr and faDirectory = 0 then
       begin
-        NoteForm := TNoteForm.Create(Self);
-        NoteForm.Name := SR.Name;
-        //+Прозрачность от MainForm
-        NoteForm.AlphaBlend := MainForm.AlphaBlend;
-        NoteForm.Font := MainForm.Font;
-        NoteForm.Font.Color := clBlack;
-        NoteForm.Show;
+        ANote := TNoteForm.Create(Self);
+        ANote.Name := SR.Name;
+
+        // Передаем настройки
+        ANote.AlphaBlend := MainForm.AlphaBlend;
+        ANote.Font.Assign(MainForm.Font);
+
+        // Важно: Настраиваем внутренний компонент Memo самой созданной записки
+        ANote.Memo1.ParentColor := False;
+        ANote.Memo1.ParentFont := False;
+        ANote.Memo1.Font.Assign(MainForm.Font);
+        ANote.Memo1.Font.Color := clBlack;
+
+        ANote.Show;
       end;
     until FindNext(SR) <> 0
   finally
@@ -118,26 +127,47 @@ end;
 procedure TMainForm.TransparencyItemClick(Sender: TObject);
 var
   i: integer;
+  bmp: TBitmap;
 begin
-  if TransparencyItem.Checked then
-    TransparencyItem.Checked := False
-  else
-    TransparencyItem.Checked := True;
+  try
+    bmp := TBitmap.Create;
+    bmp.PixelFormat := pf32bit;
+    bmp.Assign(Image2.Picture.Graphic);
 
-  MainForm.AlphaBlend := TransparencyItem.Checked;
-  IniPropStorage1.Save;
+    if not TransparencyItem.Bitmap.Empty then
+    begin
+      TransparencyItem.Bitmap.Clear;
+      MainForm.AlphaBlend := False;
+    end
+    else
+    begin
+      TransparencyItem.Bitmap.Assign(bmp);
+      MainForm.AlphaBlend := True;
+    end;
 
-  for i := 0 to Screen.FormCount - 1 do
-    if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-      Screen.Forms[i].AlphaBlend := MainForm.AlphaBlend;
+    IniPropStorage1.Save;
+
+    //Перерисовка всех форм
+   // CloseAllItem.Click;
+
+    for i := 0 to Screen.FormCount - 1 do
+      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+        Screen.Forms[i].AlphaBlend := MainForm.AlphaBlend;
+
+   // ShowAllItem.Click;
+
+  finally
+    bmp.Free;
+  end;
 end;
+
 
 //Показать/Скрыть все
 procedure TMainForm.TrayIcon1Click(Sender: TObject);
 var
   i: integer;
 begin
-    for i := 0 to Screen.FormCount - 1 do
+  for i := 0 to Screen.FormCount - 1 do
     if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
     begin
       CloseAllItem.Click;
@@ -152,17 +182,9 @@ end;
 
 procedure TMainForm.ExitItemClick(Sender: TObject);
 begin
+  CloseAllItem.Click;
+
   Close;
-end;
-
-procedure TMainForm.PopupMenu1Popup(Sender: TObject);
-begin
-  //Контроль автостарта
-  if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
-    AutoStartItem.Checked := True;
-
-  //+Прозрачность
-  TransparencyItem.Checked := MainForm.AlphaBlend;
 end;
 
 //Показать все
@@ -197,64 +219,66 @@ begin
     bmp.PixelFormat := pf32bit;
     bmp.Assign(Image1.Picture.Graphic);
     Application.Icon.Assign(bmp);
+
+    TrayIcon1.Hint := Application.Title;
+    TrayIcon1.Icon := Application.Icon;
+
+    if not DirectoryExists(GetUserDir + '.config') then
+      MkDir(GetUserDir + '.config');
+
+    if not DirectoryExists(GetUserDir + '.config/stickynotes') then
+      MkDir(GetUserDir + '.config/stickynotes');
+
+    IniPropStorage1.IniFileName := GetUserDir + '.config/stickynotes/settings.conf';
+    //Вытаскиваем Default-настройки
+    IniPropStorage1.Restore;
+
+    //Контроль автостарта
+    bmp.Assign(Image2.Picture.Graphic);
+
+    if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
+      AutoStartItem.Bitmap.Assign(bmp);
+
+    //Контроль прозрачности
+    if MainForm.AlphaBlend then TransparencyItem.Bitmap.Assign(bmp);
+
+    //Сразу показываем заметки
+    ShowAllItem.Click;
+
   finally
     bmp.Free;
   end;
-
-
-  TrayIcon1.Hint := Application.Title;
-  TrayIcon1.Icon := Application.Icon;
-
-  if not DirectoryExists(GetUserDir + '.config') then
-    MkDir(GetUserDir + '.config');
-
-  if not DirectoryExists(GetUserDir + '.config/stickynotes') then
-    MkDir(GetUserDir + '.config/stickynotes');
-
-  IniPropStorage1.IniFileName := GetUserDir + '.config/stickynotes/settings.conf';
-  //Вытаскиваем Default-настройки
-  IniPropStorage1.Restore;
-
-  //Контроль автостарта
-  if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
-    AutoStartItem.Checked := True;
-
-  //Контроль прозрачности
-  TransparencyItem.Checked := MainForm.AlphaBlend;
-
-  //Сразу показываем заметки
-  ShowAllItem.Click;
 end;
 
-//Добавить новую записку
+// Добавить новую записку
 procedure TMainForm.NewNoteItemClick(Sender: TObject);
 var
   i: integer;
+  ANote: TNoteForm; // Локальная переменная
 begin
-  //Первая записка существует?
+  // Первая записка существует?
   if not FileExists(GetUserDir + '.config/stickynotes/NoteForm') then
   begin
-    NoteForm := TNoteForm.Create(Self);
-    //+Прозрачность
-    NoteForm.AlphaBlend := MainForm.AlphaBlend;
-    NoteForm.Font := MainForm.Font;
-    NoteForm.Font.Color := clBlack;
-    NoteForm.Show;
+    ANote := TNoteForm.Create(Self);
+    ANote.AlphaBlend := MainForm.AlphaBlend;
+    ANote.Font.Assign(MainForm.Font);
+    ANote.Memo1.ParentFont := False;
+    ANote.Memo1.Font.Color := clBlack;
+    ANote.Show;
     Exit;
   end;
 
   for i := 1 to GetFilesCount do
   begin
-    if not FileExists(GetUserDir + '.config/stickynotes/NoteForm' +
-      '_' + IntToStr(i)) then
+    if not FileExists(GetUserDir + '.config/stickynotes/NoteForm_' + IntToStr(i)) then
     begin
-      NoteForm := TNoteForm.Create(Self);
-      NoteForm.Name := 'NoteForm_' + IntToStr(i);
-      //+Прозрачность
-      NoteForm.AlphaBlend := MainForm.AlphaBlend;
-      NoteForm.Font := MainForm.Font;
-      NoteForm.Font.Color := clBlack;
-      NoteForm.Show;
+      ANote := TNoteForm.Create(Self);
+      ANote.Name := 'NoteForm_' + IntToStr(i);
+      ANote.AlphaBlend := MainForm.AlphaBlend;
+      ANote.Font.Assign(MainForm.Font);
+      ANote.Memo1.ParentFont := False;
+      ANote.Memo1.Font.Color := clBlack;
+      ANote.Show;
       Exit;
     end;
   end;
@@ -280,21 +304,30 @@ begin
   end;
 end;
 
+//Изменение шрифта
 procedure TMainForm.FontItemClick(Sender: TObject);
 var
   i: integer;
+  NForm: TNoteForm;
 begin
   FontDialog1.Font := MainForm.Font;
+
   if FontDialog1.Execute then
   begin
-    MainForm.Font := FontDialog1.Font;
+    MainForm.Font.Assign(FontDialog1.Font);
 
     for i := 0 to Screen.FormCount - 1 do
-      if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+    begin
+      if Screen.Forms[i] is TNoteForm then
       begin
-        Screen.Forms[i].Font := MainForm.Font;
-        Screen.Forms[i].Font.Color := clBlack;
+        NForm := TNoteForm(Screen.Forms[i]);
+
+        NForm.Memo1.Font.Assign(MainForm.Font);
+        NForm.Memo1.Font.Color := clBlack;
+
+        NForm.Memo1.Invalidate;
       end;
+    end;
 
     IniPropStorage1.Save;
   end;
@@ -331,23 +364,33 @@ end;
 
 //Ставим в автозагрузку
 procedure TMainForm.AutoStartItemClick(Sender: TObject);
+var
+  bmp: TBitmap;
 begin
-  if AutoStartItem.Checked then
-    DeleteFile(GetUserDir + '.config/autostart/stickynotes.desktop')
-  else
-  begin
-    if not DirectoryExists(GetUserDir + '.config/autostart') then
-      MkDir(GetUserDir + '.config/autostart');
+  // Устраняем баг иконки приложения
+  bmp := TBitmap.Create;
+  try
+    bmp.PixelFormat := pf32bit;
+    bmp.Assign(MainForm.Image2.Picture.Graphic);
 
-    CopyFile('/usr/share/applications/stickynotes.desktop', GetUserDir +
-      '.config/autostart/stickynotes.desktop', False);
+    if not AutoStartItem.Bitmap.Empty then
+      DeleteFile(GetUserDir + '.config/autostart/stickynotes.desktop')
+    else
+    begin
+      if not DirectoryExists(GetUserDir + '.config/autostart') then
+        MkDir(GetUserDir + '.config/autostart');
+
+      CopyFile('/usr/share/applications/stickynotes.desktop',
+        GetUserDir + '.config/autostart/stickynotes.desktop', False);
+    end;
+
+    if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
+      AutoStartItem.Bitmap.Assign(bmp)
+    else
+      AutoStartItem.Bitmap.Clear;
+  finally
+    bmp.Free;
   end;
-
-  if FileExists(GetUserDir + '.config/autostart/stickynotes.desktop') then
-    AutoStartItem.Checked := True
-  else
-    AutoStartItem.Checked := False;
 end;
-
 
 end.

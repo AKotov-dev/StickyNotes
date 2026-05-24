@@ -1,22 +1,36 @@
 object NoteForm: TNoteForm
-  Left = 327
+  Left = 377
   Height = 286
-  Top = 126
+  Top = 233
   Width = 418
+  ActiveControl = Memo1
   AlphaBlendValue = 240
   BorderStyle = bsNone
   Caption = 'NoteForm'
   ClientHeight = 286
   ClientWidth = 418
   Color = clYellow
-  SessionProperties = 'Color;Height;Left;Memo1.Lines;Shape1.Brush;Top;Width'
+  SessionProperties = 'Height;Left;Memo1.Color;Memo1.Lines;Shape1.Brush;ShapeBack.Brush;Top;Width'
   ShowInTaskBar = stNever
   LCLVersion = '4.6.0.0'
   OnClose = FormClose
+  OnCreate = FormCreate
   OnMouseDown = FormMouseDown
   OnMouseMove = FormMouseMove
   OnMouseUp = FormMouseUp
   OnShow = FormShow
+  object ShapeBack: TShape
+    Left = 0
+    Height = 286
+    Top = 0
+    Width = 418
+    Align = alClient
+    Brush.Color = clYellow
+    Pen.Color = clNone
+    OnMouseDown = FormMouseDown
+    OnMouseMove = FormMouseMove
+    OnMouseUp = FormMouseUp
+  end
   object SpeedButton2: TSpeedButton
     Left = 349
     Height = 32
@@ -55,7 +69,9 @@ object NoteForm: TNoteForm
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
     BorderStyle = bsNone
-    ParentColor = True
+    Color = clYellow
+    Font.Color = clBlack
+    ParentFont = False
     ParentShowHint = False
     ScrollBars = ssAutoVertical
     TabOrder = 0
