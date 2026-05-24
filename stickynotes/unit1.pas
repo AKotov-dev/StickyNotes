@@ -148,13 +148,25 @@ begin
     IniPropStorage1.Save;
 
     //Перерисовка всех форм
-   // CloseAllItem.Click;
 
     for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
-        Screen.Forms[i].AlphaBlend := MainForm.AlphaBlend;
+      begin
+        with Screen.Forms[i] do
+        begin
+          AlphaBlend := MainForm.AlphaBlend;
+         { Invalidate;
+          Update;
+          Repaint;
+          Refresh;
+          Left := Left - 1;
+          Left := Left + 1;}
+          Hide;
+          Show;
+        end;
+      end;
 
-   // ShowAllItem.Click;
+    Application.ProcessMessages;
 
   finally
     bmp.Free;
