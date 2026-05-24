@@ -151,6 +151,7 @@ begin
 
     for i := 0 to Screen.FormCount - 1 do
       if Pos('NoteForm', Screen.Forms[i].Name) <> 0 then
+      begin
         with Screen.Forms[i] do
         begin
           AlphaBlend := MainForm.AlphaBlend;
@@ -163,6 +164,7 @@ begin
           Hide;
           Show;
         end;
+      end;
 
     Application.ProcessMessages;
 

@@ -322,6 +322,8 @@ var
   i: integer;
   NForm: TNoteForm;
 begin
+  Application.ProcessMessages;
+
   FontDialog1.Font := MainForm.Font;
 
   if FontDialog1.Execute then
