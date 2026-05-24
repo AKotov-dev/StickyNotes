@@ -65,7 +65,7 @@ toolversion=4.6
 1=
 2=v0.7
 3=+ Build in Lazarus-4.6 (Qt6 widgets)
-4=+ Packages for Mageia and Ubuntu
+4=+ Packages for Mageia-10 and Ubuntu >= 25.10
 5=
 6=v0.6
 7=+ Added rpm-dependencies: gtk2
