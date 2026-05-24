@@ -1,5 +1,7 @@
 StickyNotes
 --
+Only X11 supported (not Wayland).  
+  
 **Dependencies:**
 - RPM: qtbase6-common qt6pas
 - DEB: libqt6core6 libqt6gui6 libqt6widgets6 libqt6dbus6 libqt6pas6
